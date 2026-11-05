@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+bin/
+models/
+mlflow.db*
+mlruns/
+mlartifacts/
+runs/
