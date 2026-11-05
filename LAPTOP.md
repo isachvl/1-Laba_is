@@ -90,3 +90,22 @@ powershell -ExecutionPolicy Bypass -File .\run_all.ps1
 
 В `.gitignore` разрешён только исходный завершённый запуск. Для публикации нового
 запуска добавьте разрешение для его папки или используйте `git add -f runs/ИМЯ_ЗАПУСКА`.
+
+## Обновление графиков после git pull
+
+Остановите MLflow UI сочетанием Ctrl+C. Если prepare_laptop.py ранее изменил локальные
+пути в базе, сохраните её копию перед восстановлением версии из Git:
+
+```powershell
+Copy-Item mlflow.db mlflow.db.before_graphs -Force
+git restore -- mlflow.db
+git pull --ff-only origin main
+.\.venv\Scripts\python.exe prepare_laptop.py
+.\.venv\Scripts\python.exe simplify_mlflow.py
+powershell -ExecutionPolicy Bypass -File .\mlflow_ui.ps1
+```
+
+В Metrics осталось 9 основных графиков: TTFT от входа; полное время и TPOT от
+длины ответа; throughput, p90 TTFT, TPOT и goodput от клиентов; p90 TTFT и TPOT
+при половинном контексте. Ось Step: токены для input/output, клиенты для load/half.
+Три оформленных графика отчёта остаются в Artifacts → analysis.

@@ -81,13 +81,12 @@ def analyze(directory):
     metadata=json.loads((directory/'metadata.json').read_text(encoding='utf-8'))
     mlflow.set_tracking_uri('sqlite:///mlflow.db')
     with mlflow.start_run(run_id=metadata['mlflow_run_id']):
-        mlflow.log_metrics({'fit_slope_s':float(slope),'fit_intercept_s':float(intercept),
-                            'cache_speedup':summary['cache']['speedup_second'],
-                            'max_clients':summary['load_max_clients']})
+        from simplify_mlflow import KEEP
         for name in ('input','output','load','half'):
             for group in summary[name]:
-                mlflow.log_metrics({f'{name}_{k}':float(v) for k,v in group.items()
-                                    if isinstance(v,(int,float)) and k!='level'},step=group['level'])
+                selected = {f'{name}_{k}':float(v) for k,v in group.items()
+                            if f'{name}_{k}' in KEEP}
+                mlflow.log_metrics(selected, step=group['level'])
         for pattern in ('*.png','*table.csv','summary.json'):
             for p in directory.glob(pattern):
                 mlflow.log_artifact(str(p),artifact_path='analysis')
