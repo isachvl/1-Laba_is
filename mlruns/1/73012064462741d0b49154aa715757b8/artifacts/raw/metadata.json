@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "started": "2026-11-05T03:23:05.641009+07:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "physical_cores": 8,
+  "logical_cores": 16,
+  "ram_bytes": 17103020032,
+  "threads": 8,
+  "device": "CPU; -ngl 0",
+  "model_sha256": "2fde00ce69dd4899c70d020845e2638353015bba0fdf161b3eb965f2bca4464e",
+  "model_bytes": 2497280736,
+  "model_revision": "ae44f08e1392f39c0e474af10c3ff8355c8b6688",
+  "model_repo": "bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF",
+  "source_lab0_commit": "aa278f2774a3156abe4e5c81691b894edca4e4bd",
+  "code_sha256": {
+    "analyze.py": "d67b1f54f643068478eaa6fc3998806d8d89b02a2190a8990131b35789274a5e",
+    "client.py": "1f13070d0c898405a254fc0a0544db37a4e1e629c2c081bda195849228671954",
+    "demo.py": "9fdb7e828b208459ede5571295feaa11a48ea9cac3661d43eb3f184f2044c7f9",
+    "experiment.py": "ee7aecce9906482b5cfa61b7b2cf65159962a439114de0f2ee15daa58887651c",
+    "make_report.py": "f1762ac4655b01694860b6f923dd9f506d858b6799327aa6982c6218c9e9bc95",
+    "prompts.py": "1830dd6f29c50d15cddaef6935a7e7cc40b48d15b9f50b3d9c1cff91d28af93b",
+    "results.py": "2681311c7dfb2988a33419d68074a29e1a1b9d1535c6e08dbc4f44508b200c32",
+    "test_metrics.py": "ad2f84c1f9033aa568c88f4306716671950a5d37a50a9ffd464aa476a932256d"
+  },
+  "mlflow_run_id": "73012064462741d0b49154aa715757b8",
+  "finished": "2026-11-05T04:27:55.299649+07:00"
+}

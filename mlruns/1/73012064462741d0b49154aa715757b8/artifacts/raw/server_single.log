@@ -1,0 +1,1605 @@
+0.00.512.619 I srv  llama_server: initializing ...
+0.00.512.752 I cmn  common_param: common_params_print_info: build 12110 (cd959bae9) with Clang 20.1.8 for Windows x86_64
+0.00.512.753 I cmn  common_param: common_params_print_info: verbosity = 4 (adjust with the `-lv N` CLI arg)
+0.00.512.753 I cmn  common_param: device_info:
+0.00.512.758 I cmn  common_param:   - CPU     : AMD Ryzen 7 3700X 8-Core Processor              (16310 MiB, 6691 MiB free)
+0.00.521.085 I cmn  common_param: system_info: n_threads = 8 (n_threads_batch = 8) / 16 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.00.541.555 I srv  init_listene: running without SSL
+0.00.541.825 I srv          init: using 15 threads for HTTP server
+0.00.541.896 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.552.159 I srv    load_model: loading model 'D:\project\python\lab1\models\Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf'
+0.00.552.161 I srv    load_model: local path 'D:\project\python\lab1\models\Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf'
+0.00.554.509 I cmn  common_fit_a: fitting params to device memory ...
+0.00.554.512 I cmn  common_fit_a: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+0.00.554.931 I common_params_fit_impl: getting device memory data for initial parameters:
+0.00.780.643 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+0.00.780.647 I common_memory_breakdown_print: |   - Host               |                 3094 =   692 +    2304 +      98                |
+0.00.780.648 I common_memory_breakdown_print: |   - CPU_REPACK         |                 1683 =  1683 +       0 +       0                |
+0.00.800.481 I common_params_fit_impl: projected to use 3094 MiB of host memory vs. 16310 MiB of total host memory
+0.00.800.485 I common_params_fit_impl: will leave 13216 >= 1024 MiB of system memory, no changes needed
+0.00.800.519 I common_fit_params: successfully fit params to free device memory
+0.00.800.662 I common_fit_params: fitting params to free memory took 0.25 seconds
+0.00.837.569 I llama_model_loader: loaded meta data with 36 key-value pairs and 398 tensors from D:\project\python\lab1\models\Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf (version GGUF V3 (latest))
+0.00.837.583 I llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+0.00.837.586 I llama_model_loader: - kv   0:                       general.architecture str              = qwen3
+0.00.837.588 I llama_model_loader: - kv   1:                               general.type str              = model
+0.00.837.589 I llama_model_loader: - kv   2:                               general.name str              = Qwen3 4B Instruct 2507
+0.00.837.590 I llama_model_loader: - kv   3:                            general.version str              = 2507
+0.00.837.591 I llama_model_loader: - kv   4:                           general.finetune str              = Instruct
+0.00.837.591 I llama_model_loader: - kv   5:                           general.basename str              = Qwen3
+0.00.837.592 I llama_model_loader: - kv   6:                         general.size_label str              = 4B
+0.00.837.593 I llama_model_loader: - kv   7:                            general.license str              = apache-2.0
+0.00.837.595 I llama_model_loader: - kv   8:                       general.license.link str              = https://huggingface.co/Qwen/Qwen3-4B-...
+0.00.837.597 I llama_model_loader: - kv   9:                               general.tags arr[str,1]       = ["text-generation"]
+0.00.837.599 I llama_model_loader: - kv  10:                          qwen3.block_count u32              = 36
+0.00.837.600 I llama_model_loader: - kv  11:                       qwen3.context_length u32              = 262144
+0.00.837.600 I llama_model_loader: - kv  12:                     qwen3.embedding_length u32              = 2560
+0.00.837.601 I llama_model_loader: - kv  13:                  qwen3.feed_forward_length u32              = 9728
+0.00.837.602 I llama_model_loader: - kv  14:                 qwen3.attention.head_count u32              = 32
+0.00.837.602 I llama_model_loader: - kv  15:              qwen3.attention.head_count_kv u32              = 8
+0.00.837.608 I llama_model_loader: - kv  16:                       qwen3.rope.freq_base f32              = 5000000.000000
+0.00.837.610 I llama_model_loader: - kv  17:     qwen3.attention.layer_norm_rms_epsilon f32              = 0.000001
+0.00.837.611 I llama_model_loader: - kv  18:                 qwen3.attention.key_length u32              = 128
+0.00.837.612 I llama_model_loader: - kv  19:               qwen3.attention.value_length u32              = 128
+0.00.837.612 I llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = gpt2
+0.00.837.613 I llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = qwen2
+0.00.837.616 I llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,151936]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+0.00.837.619 I llama_model_loader: - kv  23:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+0.00.837.621 I llama_model_loader: - kv  24:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+0.00.837.622 I llama_model_loader: - kv  25:                tokenizer.ggml.eos_token_id u32              = 151645
+0.00.837.623 I llama_model_loader: - kv  26:            tokenizer.ggml.padding_token_id u32              = 151643
+0.00.837.623 I llama_model_loader: - kv  27:                tokenizer.ggml.bos_token_id u32              = 151643
+0.00.837.624 I llama_model_loader: - kv  28:               tokenizer.ggml.add_bos_token bool             = false
+0.00.837.627 I llama_model_loader: - kv  29:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+0.00.837.628 I llama_model_loader: - kv  30:               general.quantization_version u32              = 2
+0.00.837.628 I llama_model_loader: - kv  31:                          general.file_type u32              = 15
+0.00.837.630 I llama_model_loader: - kv  32:                      quantize.imatrix.file str              = /models_out/Qwen3-4B-Instruct-2507-GG...
+0.00.837.631 I llama_model_loader: - kv  33:                   quantize.imatrix.dataset str              = /training_dir/calibration_datav3.txt
+0.00.837.632 I llama_model_loader: - kv  34:             quantize.imatrix.entries_count u32              = 252
+0.00.837.632 I llama_model_loader: - kv  35:              quantize.imatrix.chunks_count u32              = 497
+0.00.837.633 I llama_model_loader: - type  f32:  145 tensors
+0.00.837.634 I llama_model_loader: - type q4_K:  216 tensors
+0.00.837.634 I llama_model_loader: - type q6_K:   37 tensors
+0.00.837.636 I print_info: file format = GGUF V3 (latest)
+0.00.837.637 I print_info: file type   = Q4_K - Medium
+0.00.837.638 I print_info: file size   = 2.32 GiB (4.95 BPW) 
+0.00.901.661 I load: 0 unused tokens
+0.00.922.089 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.927.156 I load: printing all EOG tokens:
+0.00.927.159 I load:   - 128247 ('</s>')
+0.00.927.160 I load:   - 151643 ('<|endoftext|>')
+0.00.927.160 I load:   - 151645 ('<|im_end|>')
+0.00.927.161 I load:   - 151662 ('<|fim_pad|>')
+0.00.927.161 I load:   - 151663 ('<|repo_name|>')
+0.00.927.162 I load:   - 151664 ('<|file_sep|>')
+0.00.927.514 I load: special tokens cache size = 27
+0.00.948.372 I load: token to piece cache size = 0.9311 MB
+0.00.948.388 I print_info: arch                  = qwen3
+0.00.948.389 I print_info: vocab_only            = 0
+0.00.948.390 I print_info: no_alloc              = 0
+0.00.948.390 I print_info: n_ctx_train           = 262144
+0.00.948.391 I print_info: n_embd_inp            = 2560
+0.00.948.392 I print_info: n_embd                = 2560
+0.00.948.392 I print_info: n_embd_out            = 2560
+0.00.948.393 I print_info: n_layer               = 36
+0.00.948.393 I print_info: n_layer_all           = 36
+0.00.948.405 I print_info: n_head                = 32
+0.00.948.407 I print_info: n_head_kv             = 8
+0.00.948.408 I print_info: n_rot                 = 128
+0.00.948.408 I print_info: n_swa                 = 0
+0.00.948.409 I print_info: is_swa_any            = 0
+0.00.948.409 I print_info: non_causal_type       = 0
+0.00.948.410 I print_info: n_embd_head_k         = 128
+0.00.948.410 I print_info: n_embd_head_v         = 128
+0.00.948.413 I print_info: n_gqa                 = 4
+0.00.948.415 I print_info: n_embd_k_gqa          = 1024
+0.00.948.418 I print_info: n_embd_v_gqa          = 1024
+0.00.948.420 I print_info: f_norm_eps            = 0.0e+00
+0.00.948.422 I print_info: f_norm_rms_eps        = 1.0e-06
+0.00.948.422 I print_info: f_clamp_kqv           = 0.0e+00
+0.00.948.423 I print_info: f_max_alibi_bias      = 0.0e+00
+0.00.948.423 I print_info: f_logit_scale         = 0.0e+00
+0.00.948.424 I print_info: f_attn_scale          = 0.0e+00
+0.00.948.425 I print_info: f_attn_value_scale    = 0.0000
+0.00.948.427 I print_info: n_ff                  = 9728
+0.00.948.427 I print_info: n_expert              = 0
+0.00.948.428 I print_info: n_expert_used         = 0
+0.00.948.429 I print_info: n_expert_groups       = 0
+0.00.948.429 I print_info: n_group_used          = 0
+0.00.948.430 I print_info: causal attn           = 1
+0.00.948.430 I print_info: pooling type          = -1
+0.00.948.430 I print_info: rope type             = 2
+0.00.948.431 I print_info: rope scaling          = linear
+0.00.948.432 I print_info: freq_base_train       = 5000000.0
+0.00.948.434 I print_info: freq_scale_train      = 1
+0.00.948.434 I print_info: n_ctx_orig_yarn       = 262144
+0.00.948.435 I print_info: rope_yarn_log_mul     = 0.0000
+0.00.948.435 I print_info: rope_finetuned        = unknown
+0.00.948.436 I print_info: model type            = 4B
+0.00.948.437 I print_info: model params          = 4.02 B
+0.00.948.438 I print_info: general.name          = Qwen3 4B Instruct 2507
+0.00.948.439 I print_info: vocab type            = BPE
+0.00.948.439 I print_info: n_vocab               = 151936
+0.00.948.440 I print_info: n_merges              = 151387
+0.00.948.440 I print_info: BOS token             = 151643 '<|endoftext|>'
+0.00.948.441 I print_info: EOS token             = 151645 '<|im_end|>'
+0.00.948.441 I print_info: EOT token             = 151645 '<|im_end|>'
+0.00.948.442 I print_info: PAD token             = 151643 '<|endoftext|>'
+0.00.948.443 I print_info: LF token              = 198 'Ċ'
+0.00.948.443 I print_info: FIM PRE token         = 151659 '<|fim_prefix|>'
+0.00.948.444 I print_info: FIM SUF token         = 151661 '<|fim_suffix|>'
+0.00.948.445 I print_info: FIM MID token         = 151660 '<|fim_middle|>'
+0.00.948.445 I print_info: FIM PAD token         = 151662 '<|fim_pad|>'
+0.00.948.446 I print_info: FIM REP token         = 151663 '<|repo_name|>'
+0.00.948.446 I print_info: FIM SEP token         = 151664 '<|file_sep|>'
+0.00.948.447 I print_info: EOG token             = 128247 '</s>'
+0.00.948.447 I print_info: EOG token             = 151643 '<|endoftext|>'
+0.00.948.448 I print_info: EOG token             = 151645 '<|im_end|>'
+0.00.948.448 I print_info: EOG token             = 151662 '<|fim_pad|>'
+0.00.948.449 I print_info: EOG token             = 151663 '<|repo_name|>'
+0.00.948.449 I print_info: EOG token             = 151664 '<|file_sep|>'
+0.00.948.450 I print_info: max token length      = 256
+0.00.948.451 I load_tensors: loading model tensors, this can take a while... (load_mode = mmap)
+0.01.173.208 I load_tensors: offloading 0 repeating layers to GPU
+0.01.173.212 I load_tensors: offloaded 0/37 layers to GPU
+0.01.173.218 I load_tensors:   CPU_Mapped model buffer size =   304.29 MiB
+0.01.173.219 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.220 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.221 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.222 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.223 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.223 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.224 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.225 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.225 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.226 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.227 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.227 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.228 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.229 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.230 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.230 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.231 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.232 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.232 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.233 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.234 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.234 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.235 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.236 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.237 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.237 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.238 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.239 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.239 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.240 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.241 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.241 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.242 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.243 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.243 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.244 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.244 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.245 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.246 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.246 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.247 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.248 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.248 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.249 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.250 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.250 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.251 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.252 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.252 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.253 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.254 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.254 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.256 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.257 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.257 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.258 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.258 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.259 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.260 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.260 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.261 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.262 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.262 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.263 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.263 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.264 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.265 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.266 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.266 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.267 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.267 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.268 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.269 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.269 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.270 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.271 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.271 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.272 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.273 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.273 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.274 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.275 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.275 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.276 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.277 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.277 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.278 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.279 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.279 I load_tensors:   CPU_Mapped model buffer size =     0.00 MiB
+0.01.173.280 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.280 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.281 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.282 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.282 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.283 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.284 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.284 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.285 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.286 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.286 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.287 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.288 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.288 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.289 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.290 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.290 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.291 I load_tensors:   CPU_Mapped model buffer size =    21.53 MiB
+0.01.173.292 I load_tensors:   CPU_Mapped model buffer size =     0.01 MiB
+0.01.173.293 I load_tensors:   CPU_REPACK model buffer size =  1683.28 MiB
+0.02.666.965 I cmn  common_init_: added </s> logit bias = -inf
+0.02.667.183 I cmn  common_init_: added <|endoftext|> logit bias = -inf
+0.02.667.186 I cmn  common_init_: added <|im_end|> logit bias = -inf
+0.02.667.187 I cmn  common_init_: added <|fim_pad|> logit bias = -inf
+0.02.667.189 I cmn  common_init_: added <|repo_name|> logit bias = -inf
+0.02.667.189 I cmn  common_init_: added <|file_sep|> logit bias = -inf
+0.02.669.287 I llama_context: constructing llama_context
+0.02.669.298 I llama_context: n_seq_max             = 1
+0.02.669.300 I llama_context: n_ctx                 = 16384
+0.02.669.300 I llama_context: n_ctx_seq             = 16384
+0.02.669.301 I llama_context: n_batch               = 2048
+0.02.669.302 I llama_context: n_ubatch              = 512
+0.02.669.303 I llama_context: causal_attn           = 1
+0.02.669.304 I llama_context: flash_attn            = auto
+0.02.669.304 I llama_context: kv_unified            = false
+0.02.669.308 I llama_context: freq_base             = 5000000.0
+0.02.669.311 I llama_context: freq_scale            = 1
+0.02.669.311 I llama_context: n_rs_seq              = 0
+0.02.669.312 I llama_context: n_outputs_max         = 1
+0.02.669.313 I llama_context: n_outputs_max_per_seq = 1
+0.02.669.315 I llama_context: n_ctx_seq (16384) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+0.02.669.487 I llama_context:        CPU  output buffer size =     0.58 MiB
+0.03.238.811 I llama_kv_cache:        CPU KV buffer size =  2304.00 MiB
+0.03.238.821 I llama_kv_cache: size = 2304.00 MiB ( 16384 cells,  36 layers,  1/1 seqs), K (f16): 1152.00 MiB, V (f16): 1152.00 MiB
+0.03.238.834 I llama_kv_cache: n_rot_k = 0, n_embd_head_k_all = 128
+0.03.238.835 I llama_kv_cache: n_rot_v = 0, n_embd_head_k_all = 128
+0.03.238.849 I sched_reserve: reserving ...
+0.03.241.721 I resolve_fused_ops: Flash Attention enabled
+0.03.241.724 I resolve_fused_ops: resolving fused DeepSeek V4 HC support:
+0.03.242.521 I resolve_fused_ops: fused DeepSeek V4 HC pre enabled
+0.03.243.286 I resolve_fused_ops: fused DeepSeek V4 HC comb enabled
+0.03.244.040 I resolve_fused_ops: fused DeepSeek V4 HC post enabled
+0.03.247.055 I sched_reserve:        CPU compute buffer size =    98.02 MiB
+0.03.247.062 I sched_reserve: graph: nodes = 1269, splits = 1, input objects = 4, input tensors = 9
+0.03.247.063 I sched_reserve: reserve took 8.21 ms, sched copies = 1
+0.03.247.295 I cmn          init: llama threadpool init, n_threads = 8
+0.03.247.526 I cmn  common_init_: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+0.03.961.002 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16384, kv_unified = 'false'
+0.03.961.336 I spec common_specu: no implementations specified for speculative decoding
+0.03.961.344 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 16384
+0.03.961.380 I srv    load_model: prompt cache is disabled - use `--cache-ram N` to enable it
+0.03.961.381 I srv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+0.03.961.381 I srv    load_model: context checkpoints enabled, max = 32, min spacing = 8192
+0.03.961.537 W srv          init: --cache-idle-slots requires --cache-ram, disabling
+0.03.987.458 I srv          init: init: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+'
+0.03.988.006 I srv          init: init: chat template, thinking = 1
+0.03.988.205 I srv          init: preserve_reasoning kwarg: not supported by template
+0.03.988.416 I srv  server_run_i: model loaded
+0.03.988.421 I srv  server_on_li: listening on http://127.0.0.1:8080
+0.03.988.482 I srv  update_slots: all slots are idle
+0.04.652.164 I srv  server_strea: conv_id= (empty=1)
+0.04.654.667 I slot get_availabl: id  0 | task -1 |  - skipping, slot is empty
+0.04.654.674 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+0.04.654.739 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+0.04.654.751 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.04.654.756 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.04.654.769 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+0.04.654.779 I slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.04.654.972 I slot init_sampler: id  0 | task 0 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+0.19.203.839 I slot print_timing: id  0 | task 0 | prompt eval time =   12920.48 ms /  1024 tokens (   12.62 ms per token,    79.25 tokens per second)
+0.19.203.846 I slot print_timing: id  0 | task 0 |        eval time =    1628.40 ms /    16 tokens (  108.56 ms per token,     9.21 tokens per second)
+0.19.203.848 I slot print_timing: id  0 | task 0 |       total time =   14548.88 ms /  1040 tokens
+0.19.203.849 I slot print_timing: id  0 | task 0 |    graphs reused =         15
+0.19.203.851 I slot print_timing: id  0 | task 0 |   graph reallocs =          0    /     0        (same size) / (changed size)
+0.19.204.193 I slot      release: id  0 | task 0 | stop processing: n_tokens = 1039, truncated = 0
+0.19.204.211 I srv  update_slots: all slots are idle
+0.19.248.282 I srv  server_strea: conv_id= (empty=1)
+0.19.251.772 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+0.19.251.780 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 18693572
+0.19.252.044 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+0.19.252.059 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.19.252.061 I slot launch_slot_: id  0 | task 17 | processing task, is_child = 0
+0.19.252.069 I slot   operator(): id  0 | task 17 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+0.19.252.075 I slot   operator(): id  0 | task 17 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.19.252.413 I slot init_sampler: id  0 | task 17 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+0.38.390.521 I slot print_timing: id  0 | task 17 | prompt eval time =   12599.32 ms /  1024 tokens (   12.30 ms per token,    81.27 tokens per second)
+0.38.390.527 I slot print_timing: id  0 | task 17 |        eval time =    6539.11 ms /    64 tokens (  103.80 ms per token,     9.63 tokens per second)
+0.38.390.529 I slot print_timing: id  0 | task 17 |       total time =   19138.43 ms /  1088 tokens
+0.38.390.532 I slot print_timing: id  0 | task 17 |    graphs reused =         77
+0.38.390.533 I slot print_timing: id  0 | task 17 |   graph reallocs =          0    /     0        (same size) / (changed size)
+0.38.390.613 I slot      release: id  0 | task 17 | stop processing: n_tokens = 1087, truncated = 0
+0.38.390.626 I srv  update_slots: all slots are idle
+0.38.401.027 I srv  server_strea: conv_id= (empty=1)
+0.38.403.795 I slot get_availabl: id  0 | task -1 |  - checking sim = 1.000 (1024/1024) > 0.100
+0.38.403.802 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 1.000 (> 0.100 thold), f_keep = 0.942
+0.38.404.064 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+0.38.404.078 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.38.404.081 I slot launch_slot_: id  0 | task 82 | processing task, is_child = 0
+0.38.404.090 I slot   operator(): id  0 | task 82 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+0.38.404.097 I slot   operator(): id  0 | task 82 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.38.404.462 I slot init_sampler: id  0 | task 82 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+0.57.668.960 I slot print_timing: id  0 | task 82 | prompt eval time =   12708.05 ms /  1024 tokens (   12.41 ms per token,    80.58 tokens per second)
+0.57.668.965 I slot print_timing: id  0 | task 82 |        eval time =    6556.80 ms /    64 tokens (  104.08 ms per token,     9.61 tokens per second)
+0.57.668.967 I slot print_timing: id  0 | task 82 |       total time =   19264.85 ms /  1088 tokens
+0.57.668.968 I slot print_timing: id  0 | task 82 |    graphs reused =        139
+0.57.668.969 I slot print_timing: id  0 | task 82 |   graph reallocs =          0    /     0        (same size) / (changed size)
+0.57.669.045 I slot      release: id  0 | task 82 | stop processing: n_tokens = 1087, truncated = 0
+0.57.669.056 I srv  update_slots: all slots are idle
+0.57.691.301 I srv  server_strea: conv_id= (empty=1)
+0.57.693.726 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+0.57.693.730 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 57158421
+0.57.693.938 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+0.57.693.949 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.57.693.951 I slot launch_slot_: id  0 | task 147 | processing task, is_child = 0
+0.57.693.956 I slot   operator(): id  0 | task 147 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+0.57.693.961 I slot   operator(): id  0 | task 147 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.57.694.259 I slot init_sampler: id  0 | task 147 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+1.11.872.704 I slot print_timing: id  0 | task 147 | prompt eval time =   12636.13 ms /  1024 tokens (   12.34 ms per token,    81.04 tokens per second)
+1.11.872.762 I slot print_timing: id  0 | task 147 |        eval time =    1542.59 ms /    16 tokens (  102.84 ms per token,     9.72 tokens per second)
+1.11.872.768 I slot print_timing: id  0 | task 147 |       total time =   14178.73 ms /  1040 tokens
+1.11.872.770 I slot print_timing: id  0 | task 147 |    graphs reused =        153
+1.11.872.771 I slot print_timing: id  0 | task 147 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.11.872.854 I slot      release: id  0 | task 147 | stop processing: n_tokens = 1039, truncated = 0
+1.11.872.868 I srv  update_slots: all slots are idle
+1.11.888.467 I srv  server_strea: conv_id= (empty=1)
+1.11.888.889 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.023 (3/128) > 0.100
+1.11.888.893 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 71362230
+1.11.889.130 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.11.889.143 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.11.889.145 I slot launch_slot_: id  0 | task 164 | processing task, is_child = 0
+1.11.889.151 I slot   operator(): id  0 | task 164 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 128
+1.11.889.156 I slot   operator(): id  0 | task 164 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.11.889.372 I slot init_sampler: id  0 | task 164 | init sampler, took 0.02 ms, tokens: text = 128, total = 128
+1.15.034.249 I slot print_timing: id  0 | task 164 | prompt eval time =    1602.02 ms /   128 tokens (   12.52 ms per token,    79.90 tokens per second)
+1.15.034.255 I slot print_timing: id  0 | task 164 |        eval time =    1543.05 ms /    16 tokens (  102.87 ms per token,     9.72 tokens per second)
+1.15.034.257 I slot print_timing: id  0 | task 164 |       total time =    3145.07 ms /   144 tokens
+1.15.034.258 I slot print_timing: id  0 | task 164 |    graphs reused =        167
+1.15.034.259 I slot print_timing: id  0 | task 164 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.15.034.290 I slot      release: id  0 | task 164 | stop processing: n_tokens = 143, truncated = 0
+1.15.034.308 I srv  update_slots: all slots are idle
+1.15.049.606 I srv  server_strea: conv_id= (empty=1)
+1.15.050.174 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.023 (3/128) > 0.100
+1.15.050.179 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 143, t_last = 74523665
+1.15.050.454 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.15.050.466 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.15.050.469 I slot launch_slot_: id  0 | task 181 | processing task, is_child = 0
+1.15.050.476 I slot   operator(): id  0 | task 181 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 128
+1.15.050.481 I slot   operator(): id  0 | task 181 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.15.050.539 I slot init_sampler: id  0 | task 181 | init sampler, took 0.02 ms, tokens: text = 128, total = 128
+1.18.190.674 I slot print_timing: id  0 | task 181 | prompt eval time =    1709.03 ms /   128 tokens (   13.35 ms per token,    74.90 tokens per second)
+1.18.190.679 I slot print_timing: id  0 | task 181 |        eval time =    1431.14 ms /    16 tokens (   95.41 ms per token,    10.48 tokens per second)
+1.18.190.680 I slot print_timing: id  0 | task 181 |       total time =    3140.18 ms /   144 tokens
+1.18.190.681 I slot print_timing: id  0 | task 181 |    graphs reused =        181
+1.18.190.682 I slot print_timing: id  0 | task 181 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.18.190.714 I slot      release: id  0 | task 181 | stop processing: n_tokens = 143, truncated = 0
+1.18.190.726 I srv  update_slots: all slots are idle
+1.18.205.132 I srv  server_strea: conv_id= (empty=1)
+1.18.205.627 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.023 (3/128) > 0.100
+1.18.205.631 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 143, t_last = 77680090
+1.18.205.855 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.18.205.867 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.18.205.868 I slot launch_slot_: id  0 | task 198 | processing task, is_child = 0
+1.18.205.875 I slot   operator(): id  0 | task 198 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 128
+1.18.205.880 I slot   operator(): id  0 | task 198 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.18.205.939 I slot init_sampler: id  0 | task 198 | init sampler, took 0.02 ms, tokens: text = 128, total = 128
+1.21.037.229 I slot print_timing: id  0 | task 198 | prompt eval time =    1493.55 ms /   128 tokens (   11.67 ms per token,    85.70 tokens per second)
+1.21.037.234 I slot print_timing: id  0 | task 198 |        eval time =    1337.79 ms /    16 tokens (   89.19 ms per token,    11.21 tokens per second)
+1.21.037.235 I slot print_timing: id  0 | task 198 |       total time =    2831.34 ms /   144 tokens
+1.21.037.236 I slot print_timing: id  0 | task 198 |    graphs reused =        195
+1.21.037.237 I slot print_timing: id  0 | task 198 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.21.037.261 I slot      release: id  0 | task 198 | stop processing: n_tokens = 143, truncated = 0
+1.21.037.276 I srv  update_slots: all slots are idle
+1.21.051.249 I srv  server_strea: conv_id= (empty=1)
+1.21.051.810 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.023 (3/128) > 0.100
+1.21.051.814 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 143, t_last = 80526637
+1.21.052.021 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.21.052.031 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.21.052.036 I slot launch_slot_: id  0 | task 215 | processing task, is_child = 0
+1.21.052.043 I slot   operator(): id  0 | task 215 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 128
+1.21.052.048 I slot   operator(): id  0 | task 215 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.21.052.105 I slot init_sampler: id  0 | task 215 | init sampler, took 0.02 ms, tokens: text = 128, total = 128
+1.23.894.749 I slot print_timing: id  0 | task 215 | prompt eval time =    1501.43 ms /   128 tokens (   11.73 ms per token,    85.25 tokens per second)
+1.23.894.753 I slot print_timing: id  0 | task 215 |        eval time =    1341.26 ms /    16 tokens (   89.42 ms per token,    11.18 tokens per second)
+1.23.894.755 I slot print_timing: id  0 | task 215 |       total time =    2842.69 ms /   144 tokens
+1.23.894.766 I slot print_timing: id  0 | task 215 |    graphs reused =        209
+1.23.894.768 I slot print_timing: id  0 | task 215 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.23.894.795 I slot      release: id  0 | task 215 | stop processing: n_tokens = 143, truncated = 0
+1.23.894.807 I srv  update_slots: all slots are idle
+1.23.910.572 I srv  server_strea: conv_id= (empty=1)
+1.23.911.111 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.023 (3/128) > 0.100
+1.23.911.116 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 143, t_last = 83384170
+1.23.911.343 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.23.911.356 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.23.911.358 I slot launch_slot_: id  0 | task 232 | processing task, is_child = 0
+1.23.911.366 I slot   operator(): id  0 | task 232 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 128
+1.23.911.371 I slot   operator(): id  0 | task 232 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.23.911.440 I slot init_sampler: id  0 | task 232 | init sampler, took 0.02 ms, tokens: text = 128, total = 128
+1.26.744.502 I slot print_timing: id  0 | task 232 | prompt eval time =    1484.27 ms /   128 tokens (   11.60 ms per token,    86.24 tokens per second)
+1.26.744.508 I slot print_timing: id  0 | task 232 |        eval time =    1348.85 ms /    16 tokens (   89.92 ms per token,    11.12 tokens per second)
+1.26.744.509 I slot print_timing: id  0 | task 232 |       total time =    2833.12 ms /   144 tokens
+1.26.744.510 I slot print_timing: id  0 | task 232 |    graphs reused =        223
+1.26.744.511 I slot print_timing: id  0 | task 232 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.26.744.535 I slot      release: id  0 | task 232 | stop processing: n_tokens = 143, truncated = 0
+1.26.744.549 I srv  update_slots: all slots are idle
+1.26.762.682 I srv  server_strea: conv_id= (empty=1)
+1.26.764.143 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.006 (3/512) > 0.100
+1.26.764.148 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 143, t_last = 86233911
+1.26.764.377 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.26.764.390 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.26.764.392 I slot launch_slot_: id  0 | task 249 | processing task, is_child = 0
+1.26.764.399 I slot   operator(): id  0 | task 249 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 512
+1.26.764.403 I slot   operator(): id  0 | task 249 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.26.764.537 I slot init_sampler: id  0 | task 249 | init sampler, took 0.08 ms, tokens: text = 512, total = 512
+1.34.280.508 I slot print_timing: id  0 | task 249 | prompt eval time =    6060.61 ms /   512 tokens (   11.84 ms per token,    84.48 tokens per second)
+1.34.280.513 I slot print_timing: id  0 | task 249 |        eval time =    1455.48 ms /    16 tokens (   97.03 ms per token,    10.31 tokens per second)
+1.34.280.515 I slot print_timing: id  0 | task 249 |       total time =    7516.09 ms /   528 tokens
+1.34.280.516 I slot print_timing: id  0 | task 249 |    graphs reused =        237
+1.34.280.517 I slot print_timing: id  0 | task 249 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.34.280.562 I slot      release: id  0 | task 249 | stop processing: n_tokens = 527, truncated = 0
+1.34.280.573 I srv  update_slots: all slots are idle
+1.34.298.545 I srv  server_strea: conv_id= (empty=1)
+1.34.300.180 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.006 (3/512) > 0.100
+1.34.300.185 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 527, t_last = 93769938
+1.34.300.340 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.34.300.353 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.34.300.355 I slot launch_slot_: id  0 | task 266 | processing task, is_child = 0
+1.34.300.361 I slot   operator(): id  0 | task 266 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 512
+1.34.300.367 I slot   operator(): id  0 | task 266 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.34.300.564 I slot init_sampler: id  0 | task 266 | init sampler, took 0.08 ms, tokens: text = 512, total = 512
+1.41.812.917 I slot print_timing: id  0 | task 266 | prompt eval time =    6063.54 ms /   512 tokens (   11.84 ms per token,    84.44 tokens per second)
+1.41.812.921 I slot print_timing: id  0 | task 266 |        eval time =    1448.99 ms /    16 tokens (   96.60 ms per token,    10.35 tokens per second)
+1.41.812.923 I slot print_timing: id  0 | task 266 |       total time =    7512.53 ms /   528 tokens
+1.41.812.924 I slot print_timing: id  0 | task 266 |    graphs reused =        251
+1.41.812.925 I slot print_timing: id  0 | task 266 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.41.812.974 I slot      release: id  0 | task 266 | stop processing: n_tokens = 527, truncated = 0
+1.41.812.986 I srv  update_slots: all slots are idle
+1.41.832.172 I srv  server_strea: conv_id= (empty=1)
+1.41.833.633 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.006 (3/512) > 0.100
+1.41.833.638 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 527, t_last = 101302350
+1.41.833.862 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.41.833.874 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.41.833.876 I slot launch_slot_: id  0 | task 283 | processing task, is_child = 0
+1.41.833.883 I slot   operator(): id  0 | task 283 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 512
+1.41.833.888 I slot   operator(): id  0 | task 283 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.41.834.079 I slot init_sampler: id  0 | task 283 | init sampler, took 0.08 ms, tokens: text = 512, total = 512
+1.49.529.725 I slot print_timing: id  0 | task 283 | prompt eval time =    6183.93 ms /   512 tokens (   12.08 ms per token,    82.80 tokens per second)
+1.49.529.732 I slot print_timing: id  0 | task 283 |        eval time =    1511.88 ms /    16 tokens (  100.79 ms per token,     9.92 tokens per second)
+1.49.529.733 I slot print_timing: id  0 | task 283 |       total time =    7695.82 ms /   528 tokens
+1.49.529.736 I slot print_timing: id  0 | task 283 |    graphs reused =        265
+1.49.529.737 I slot print_timing: id  0 | task 283 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.49.529.798 I slot      release: id  0 | task 283 | stop processing: n_tokens = 527, truncated = 0
+1.49.529.817 I srv  update_slots: all slots are idle
+1.49.549.135 I srv  server_strea: conv_id= (empty=1)
+1.49.550.659 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.008 (4/512) > 0.100
+1.49.550.663 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 527, t_last = 109019173
+1.49.550.962 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.49.550.975 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.49.550.978 I slot launch_slot_: id  0 | task 300 | processing task, is_child = 0
+1.49.550.985 I slot   operator(): id  0 | task 300 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 512
+1.49.550.990 I slot   operator(): id  0 | task 300 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.49.551.209 I slot init_sampler: id  0 | task 300 | init sampler, took 0.08 ms, tokens: text = 512, total = 512
+1.57.236.289 I slot print_timing: id  0 | task 300 | prompt eval time =    6181.12 ms /   512 tokens (   12.07 ms per token,    82.83 tokens per second)
+1.57.236.294 I slot print_timing: id  0 | task 300 |        eval time =    1504.17 ms /    16 tokens (  100.28 ms per token,     9.97 tokens per second)
+1.57.236.295 I slot print_timing: id  0 | task 300 |       total time =    7685.29 ms /   528 tokens
+1.57.236.296 I slot print_timing: id  0 | task 300 |    graphs reused =        279
+1.57.236.297 I slot print_timing: id  0 | task 300 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.57.236.356 I slot      release: id  0 | task 300 | stop processing: n_tokens = 527, truncated = 0
+1.57.236.373 I srv  update_slots: all slots are idle
+1.57.255.101 I srv  server_strea: conv_id= (empty=1)
+1.57.256.485 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.006 (3/512) > 0.100
+1.57.256.489 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 527, t_last = 116725732
+1.57.256.723 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+1.57.256.733 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+1.57.256.735 I slot launch_slot_: id  0 | task 317 | processing task, is_child = 0
+1.57.256.740 I slot   operator(): id  0 | task 317 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 512
+1.57.256.745 I slot   operator(): id  0 | task 317 | cached n_tokens = 0, memory_seq_rm [0, end)
+1.57.256.904 I slot init_sampler: id  0 | task 317 | init sampler, took 0.06 ms, tokens: text = 512, total = 512
+2.04.821.500 I slot print_timing: id  0 | task 317 | prompt eval time =    6108.06 ms /   512 tokens (   11.93 ms per token,    83.82 tokens per second)
+2.04.821.506 I slot print_timing: id  0 | task 317 |        eval time =    1456.68 ms /    16 tokens (   97.11 ms per token,    10.30 tokens per second)
+2.04.821.507 I slot print_timing: id  0 | task 317 |       total time =    7564.74 ms /   528 tokens
+2.04.821.508 I slot print_timing: id  0 | task 317 |    graphs reused =        293
+2.04.821.509 I slot print_timing: id  0 | task 317 |   graph reallocs =          0    /     0        (same size) / (changed size)
+2.04.821.557 I slot      release: id  0 | task 317 | stop processing: n_tokens = 527, truncated = 0
+2.04.821.571 I srv  update_slots: all slots are idle
+2.04.843.129 I srv  server_strea: conv_id= (empty=1)
+2.04.845.540 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+2.04.845.547 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 527, t_last = 124310932
+2.04.845.724 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+2.04.845.737 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+2.04.845.740 I slot launch_slot_: id  0 | task 334 | processing task, is_child = 0
+2.04.845.749 I slot   operator(): id  0 | task 334 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+2.04.845.757 I slot   operator(): id  0 | task 334 | cached n_tokens = 0, memory_seq_rm [0, end)
+2.04.846.033 I slot init_sampler: id  0 | task 334 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+2.19.233.593 I slot print_timing: id  0 | task 334 | prompt eval time =   12754.12 ms /  1024 tokens (   12.46 ms per token,    80.29 tokens per second)
+2.19.233.598 I slot print_timing: id  0 | task 334 |        eval time =    1633.71 ms /    16 tokens (  108.91 ms per token,     9.18 tokens per second)
+2.19.233.650 I slot print_timing: id  0 | task 334 |       total time =   14387.83 ms /  1040 tokens
+2.19.233.653 I slot print_timing: id  0 | task 334 |    graphs reused =        307
+2.19.233.654 I slot print_timing: id  0 | task 334 |   graph reallocs =          0    /     0        (same size) / (changed size)
+2.19.233.736 I slot      release: id  0 | task 334 | stop processing: n_tokens = 1039, truncated = 0
+2.19.233.753 I srv  update_slots: all slots are idle
+2.19.256.567 I srv  server_strea: conv_id= (empty=1)
+2.19.259.567 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+2.19.259.571 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 138723112
+2.19.259.826 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+2.19.259.840 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+2.19.259.843 I slot launch_slot_: id  0 | task 351 | processing task, is_child = 0
+2.19.259.851 I slot   operator(): id  0 | task 351 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+2.19.259.857 I slot   operator(): id  0 | task 351 | cached n_tokens = 0, memory_seq_rm [0, end)
+2.19.260.172 I slot init_sampler: id  0 | task 351 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+2.33.556.897 I slot print_timing: id  0 | task 351 | prompt eval time =   12757.28 ms /  1024 tokens (   12.46 ms per token,    80.27 tokens per second)
+2.33.556.903 I slot print_timing: id  0 | task 351 |        eval time =    1539.73 ms /    16 tokens (  102.65 ms per token,     9.74 tokens per second)
+2.33.556.905 I slot print_timing: id  0 | task 351 |       total time =   14297.01 ms /  1040 tokens
+2.33.556.906 I slot print_timing: id  0 | task 351 |    graphs reused =        321
+2.33.556.911 I slot print_timing: id  0 | task 351 |   graph reallocs =          0    /     0        (same size) / (changed size)
+2.33.557.007 I slot      release: id  0 | task 351 | stop processing: n_tokens = 1039, truncated = 0
+2.33.557.026 I srv  update_slots: all slots are idle
+2.33.578.324 I srv  server_strea: conv_id= (empty=1)
+2.33.580.758 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+2.33.580.763 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 153046383
+2.33.580.921 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+2.33.580.934 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+2.33.580.936 I slot launch_slot_: id  0 | task 368 | processing task, is_child = 0
+2.33.580.942 I slot   operator(): id  0 | task 368 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+2.33.580.948 I slot   operator(): id  0 | task 368 | cached n_tokens = 0, memory_seq_rm [0, end)
+2.33.581.306 I slot init_sampler: id  0 | task 368 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+2.47.680.660 I slot print_timing: id  0 | task 368 | prompt eval time =   12559.94 ms /  1024 tokens (   12.27 ms per token,    81.53 tokens per second)
+2.47.680.666 I slot print_timing: id  0 | task 368 |        eval time =    1539.76 ms /    16 tokens (  102.65 ms per token,     9.74 tokens per second)
+2.47.680.667 I slot print_timing: id  0 | task 368 |       total time =   14099.70 ms /  1040 tokens
+2.47.680.668 I slot print_timing: id  0 | task 368 |    graphs reused =        335
+2.47.680.669 I slot print_timing: id  0 | task 368 |   graph reallocs =          0    /     0        (same size) / (changed size)
+2.47.680.774 I slot      release: id  0 | task 368 | stop processing: n_tokens = 1039, truncated = 0
+2.47.680.789 I srv  update_slots: all slots are idle
+2.47.702.675 I srv  server_strea: conv_id= (empty=1)
+2.47.704.947 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+2.47.704.952 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 167170149
+2.47.705.085 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+2.47.705.095 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+2.47.705.097 I slot launch_slot_: id  0 | task 385 | processing task, is_child = 0
+2.47.705.108 I slot   operator(): id  0 | task 385 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+2.47.705.113 I slot   operator(): id  0 | task 385 | cached n_tokens = 0, memory_seq_rm [0, end)
+2.47.705.414 I slot init_sampler: id  0 | task 385 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+3.01.852.162 I slot print_timing: id  0 | task 385 | prompt eval time =   12602.93 ms /  1024 tokens (   12.31 ms per token,    81.25 tokens per second)
+3.01.852.167 I slot print_timing: id  0 | task 385 |        eval time =    1544.11 ms /    16 tokens (  102.94 ms per token,     9.71 tokens per second)
+3.01.852.169 I slot print_timing: id  0 | task 385 |       total time =   14147.04 ms /  1040 tokens
+3.01.852.170 I slot print_timing: id  0 | task 385 |    graphs reused =        349
+3.01.852.171 I slot print_timing: id  0 | task 385 |   graph reallocs =          0    /     0        (same size) / (changed size)
+3.01.852.248 I slot      release: id  0 | task 385 | stop processing: n_tokens = 1039, truncated = 0
+3.01.852.260 I srv  update_slots: all slots are idle
+3.01.873.747 I srv  server_strea: conv_id= (empty=1)
+3.01.876.154 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+3.01.876.160 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 181341623
+3.01.876.323 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+3.01.876.336 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+3.01.876.338 I slot launch_slot_: id  0 | task 402 | processing task, is_child = 0
+3.01.876.345 I slot   operator(): id  0 | task 402 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+3.01.876.351 I slot   operator(): id  0 | task 402 | cached n_tokens = 0, memory_seq_rm [0, end)
+3.01.876.709 I slot init_sampler: id  0 | task 402 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+3.16.021.944 I slot print_timing: id  0 | task 402 | prompt eval time =   12597.18 ms /  1024 tokens (   12.30 ms per token,    81.29 tokens per second)
+3.16.021.950 I slot print_timing: id  0 | task 402 |        eval time =    1548.39 ms /    16 tokens (  103.23 ms per token,     9.69 tokens per second)
+3.16.021.951 I slot print_timing: id  0 | task 402 |       total time =   14145.58 ms /  1040 tokens
+3.16.021.953 I slot print_timing: id  0 | task 402 |    graphs reused =        363
+3.16.021.954 I slot print_timing: id  0 | task 402 |   graph reallocs =          0    /     0        (same size) / (changed size)
+3.16.022.036 I slot      release: id  0 | task 402 | stop processing: n_tokens = 1039, truncated = 0
+3.16.022.050 I srv  update_slots: all slots are idle
+3.16.061.849 I srv  server_strea: conv_id= (empty=1)
+3.16.066.356 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.002 (4/2048) > 0.100
+3.16.066.360 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 195511412
+3.16.066.613 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+3.16.066.626 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+3.16.066.628 I slot launch_slot_: id  0 | task 419 | processing task, is_child = 0
+3.16.066.634 I slot   operator(): id  0 | task 419 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+3.16.066.639 I slot   operator(): id  0 | task 419 | cached n_tokens = 0, memory_seq_rm [0, end)
+3.16.067.081 I slot init_sampler: id  0 | task 419 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+3.44.948.080 I slot print_timing: id  0 | task 419 | prompt eval time =   27109.09 ms /  2048 tokens (   13.24 ms per token,    75.55 tokens per second)
+3.44.948.085 I slot print_timing: id  0 | task 419 |        eval time =    1772.34 ms /    16 tokens (  118.16 ms per token,     8.46 tokens per second)
+3.44.948.086 I slot print_timing: id  0 | task 419 |       total time =   28881.43 ms /  2064 tokens
+3.44.948.087 I slot print_timing: id  0 | task 419 |    graphs reused =        377
+3.44.948.088 I slot print_timing: id  0 | task 419 |   graph reallocs =          0    /     0        (same size) / (changed size)
+3.44.948.214 I slot      release: id  0 | task 419 | stop processing: n_tokens = 2063, truncated = 0
+3.44.948.227 I srv  update_slots: all slots are idle
+3.44.975.112 I srv  server_strea: conv_id= (empty=1)
+3.44.979.520 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/2048) > 0.100
+3.44.979.526 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 224437591
+3.44.979.745 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+3.44.979.757 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+3.44.979.759 I slot launch_slot_: id  0 | task 436 | processing task, is_child = 0
+3.44.979.767 I slot   operator(): id  0 | task 436 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+3.44.979.773 I slot   operator(): id  0 | task 436 | cached n_tokens = 0, memory_seq_rm [0, end)
+3.44.980.353 I slot init_sampler: id  0 | task 436 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+4.14.247.462 I slot print_timing: id  0 | task 436 | prompt eval time =   27522.33 ms /  2048 tokens (   13.44 ms per token,    74.41 tokens per second)
+4.14.247.469 I slot print_timing: id  0 | task 436 |        eval time =    1745.35 ms /    16 tokens (  116.36 ms per token,     8.59 tokens per second)
+4.14.247.470 I slot print_timing: id  0 | task 436 |       total time =   29267.67 ms /  2064 tokens
+4.14.247.471 I slot print_timing: id  0 | task 436 |    graphs reused =        391
+4.14.247.472 I slot print_timing: id  0 | task 436 |   graph reallocs =          0    /     0        (same size) / (changed size)
+4.14.247.711 I slot      release: id  0 | task 436 | stop processing: n_tokens = 2063, truncated = 0
+4.14.247.739 I srv  update_slots: all slots are idle
+4.14.276.909 I srv  server_strea: conv_id= (empty=1)
+4.14.281.301 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/2048) > 0.100
+4.14.281.305 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 253737089
+4.14.281.455 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+4.14.281.477 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+4.14.281.481 I slot launch_slot_: id  0 | task 453 | processing task, is_child = 0
+4.14.281.487 I slot   operator(): id  0 | task 453 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+4.14.281.491 I slot   operator(): id  0 | task 453 | cached n_tokens = 0, memory_seq_rm [0, end)
+4.14.282.071 I slot init_sampler: id  0 | task 453 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+4.43.335.898 I slot print_timing: id  0 | task 453 | prompt eval time =   27277.86 ms /  2048 tokens (   13.32 ms per token,    75.08 tokens per second)
+4.43.335.903 I slot print_timing: id  0 | task 453 |        eval time =    1776.53 ms /    16 tokens (  118.44 ms per token,     8.44 tokens per second)
+4.43.335.905 I slot print_timing: id  0 | task 453 |       total time =   29054.39 ms /  2064 tokens
+4.43.335.906 I slot print_timing: id  0 | task 453 |    graphs reused =        405
+4.43.335.907 I slot print_timing: id  0 | task 453 |   graph reallocs =          0    /     0        (same size) / (changed size)
+4.43.336.028 I slot      release: id  0 | task 453 | stop processing: n_tokens = 2063, truncated = 0
+4.43.336.051 I srv  update_slots: all slots are idle
+4.43.364.176 I srv  server_strea: conv_id= (empty=1)
+4.43.368.692 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/2048) > 0.100
+4.43.368.696 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 282825405
+4.43.368.868 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+4.43.368.879 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+4.43.368.880 I slot launch_slot_: id  0 | task 470 | processing task, is_child = 0
+4.43.368.887 I slot   operator(): id  0 | task 470 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+4.43.368.892 I slot   operator(): id  0 | task 470 | cached n_tokens = 0, memory_seq_rm [0, end)
+4.43.369.469 I slot init_sampler: id  0 | task 470 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+5.12.353.294 I slot print_timing: id  0 | task 470 | prompt eval time =   27221.08 ms /  2048 tokens (   13.29 ms per token,    75.24 tokens per second)
+5.12.353.299 I slot print_timing: id  0 | task 470 |        eval time =    1763.31 ms /    16 tokens (  117.55 ms per token,     8.51 tokens per second)
+5.12.353.301 I slot print_timing: id  0 | task 470 |       total time =   28984.39 ms /  2064 tokens
+5.12.353.302 I slot print_timing: id  0 | task 470 |    graphs reused =        419
+5.12.353.303 I slot print_timing: id  0 | task 470 |   graph reallocs =          0    /     0        (same size) / (changed size)
+5.12.353.550 I slot      release: id  0 | task 470 | stop processing: n_tokens = 2063, truncated = 0
+5.12.353.572 I srv  update_slots: all slots are idle
+5.12.386.537 I srv  server_strea: conv_id= (empty=1)
+5.12.391.817 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/2048) > 0.100
+5.12.391.822 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 311842928
+5.12.392.032 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+5.12.392.048 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+5.12.392.049 I slot launch_slot_: id  0 | task 487 | processing task, is_child = 0
+5.12.392.056 I slot   operator(): id  0 | task 487 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+5.12.392.061 I slot   operator(): id  0 | task 487 | cached n_tokens = 0, memory_seq_rm [0, end)
+5.12.392.635 I slot init_sampler: id  0 | task 487 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+5.41.332.518 I slot print_timing: id  0 | task 487 | prompt eval time =   27169.01 ms /  2048 tokens (   13.27 ms per token,    75.38 tokens per second)
+5.41.332.523 I slot print_timing: id  0 | task 487 |        eval time =    1771.43 ms /    16 tokens (  118.10 ms per token,     8.47 tokens per second)
+5.41.332.524 I slot print_timing: id  0 | task 487 |       total time =   28940.44 ms /  2064 tokens
+5.41.332.525 I slot print_timing: id  0 | task 487 |    graphs reused =        433
+5.41.332.526 I slot print_timing: id  0 | task 487 |   graph reallocs =          0    /     0        (same size) / (changed size)
+5.41.332.653 I slot      release: id  0 | task 487 | stop processing: n_tokens = 2063, truncated = 0
+5.41.332.667 I srv  update_slots: all slots are idle
+5.41.388.465 I srv  server_strea: conv_id= (empty=1)
+5.41.396.943 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/4096) > 0.100
+5.41.396.948 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 340822030
+5.41.397.159 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+5.41.397.169 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+5.41.397.171 I slot launch_slot_: id  0 | task 504 | processing task, is_child = 0
+5.41.397.177 I slot   operator(): id  0 | task 504 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 4096
+5.41.397.182 I slot   operator(): id  0 | task 504 | cached n_tokens = 0, memory_seq_rm [0, end)
+6.08.504.346 I slot print_timing: id  0 | task 504 | prompt processing, n_tokens =   2048, progress = 0.50, t =  27.11 s / 75.55 tokens per second
+6.08.504.352 I slot   operator(): id  0 | task 504 | cached n_tokens = 2048, memory_seq_rm [2048, end)
+6.08.504.972 I slot init_sampler: id  0 | task 504 | init sampler, took 0.52 ms, tokens: text = 4096, total = 4096
+6.47.002.198 I slot print_timing: id  0 | task 504 | prompt eval time =   63427.83 ms /  4096 tokens (   15.49 ms per token,    64.58 tokens per second)
+6.47.002.203 I slot print_timing: id  0 | task 504 |        eval time =    2177.16 ms /    16 tokens (  145.14 ms per token,     6.89 tokens per second)
+6.47.002.205 I slot print_timing: id  0 | task 504 |       total time =   65604.99 ms /  4112 tokens
+6.47.002.207 I slot print_timing: id  0 | task 504 |    graphs reused =        447
+6.47.002.208 I slot print_timing: id  0 | task 504 |   graph reallocs =          0    /     0        (same size) / (changed size)
+6.47.002.516 I slot      release: id  0 | task 504 | stop processing: n_tokens = 4111, truncated = 0
+6.47.002.536 I srv  update_slots: all slots are idle
+6.47.040.499 I srv  server_strea: conv_id= (empty=1)
+6.47.048.438 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/4096) > 0.100
+6.47.048.444 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 4111, t_last = 406491894
+6.47.048.603 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+6.47.048.619 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+6.47.048.622 I slot launch_slot_: id  0 | task 522 | processing task, is_child = 0
+6.47.048.631 I slot   operator(): id  0 | task 522 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 4096
+6.47.048.638 I slot   operator(): id  0 | task 522 | cached n_tokens = 0, memory_seq_rm [0, end)
+7.14.398.790 I slot print_timing: id  0 | task 522 | prompt processing, n_tokens =   2048, progress = 0.50, t =  27.35 s / 74.88 tokens per second
+7.14.398.795 I slot   operator(): id  0 | task 522 | cached n_tokens = 2048, memory_seq_rm [2048, end)
+7.14.399.392 I slot init_sampler: id  0 | task 522 | init sampler, took 0.54 ms, tokens: text = 4096, total = 4096
+7.52.312.019 I slot print_timing: id  0 | task 522 | prompt eval time =   63102.19 ms /  4096 tokens (   15.41 ms per token,    64.91 tokens per second)
+7.52.312.025 I slot print_timing: id  0 | task 522 |        eval time =    2161.18 ms /    16 tokens (  144.08 ms per token,     6.94 tokens per second)
+7.52.312.026 I slot print_timing: id  0 | task 522 |       total time =   65263.37 ms /  4112 tokens
+7.52.312.027 I slot print_timing: id  0 | task 522 |    graphs reused =        461
+7.52.312.028 I slot print_timing: id  0 | task 522 |   graph reallocs =          0    /     0        (same size) / (changed size)
+7.52.312.244 I slot      release: id  0 | task 522 | stop processing: n_tokens = 4111, truncated = 0
+7.52.312.261 I srv  update_slots: all slots are idle
+7.52.360.577 I srv  server_strea: conv_id= (empty=1)
+7.52.368.804 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/4096) > 0.100
+7.52.368.810 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 4111, t_last = 471801622
+7.52.368.973 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+7.52.369.004 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+7.52.369.008 I slot launch_slot_: id  0 | task 540 | processing task, is_child = 0
+7.52.369.016 I slot   operator(): id  0 | task 540 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 4096
+7.52.369.021 I slot   operator(): id  0 | task 540 | cached n_tokens = 0, memory_seq_rm [0, end)
+8.19.499.022 I slot print_timing: id  0 | task 540 | prompt processing, n_tokens =   2048, progress = 0.50, t =  27.13 s / 75.49 tokens per second
+8.19.499.074 I slot   operator(): id  0 | task 540 | cached n_tokens = 2048, memory_seq_rm [2048, end)
+8.19.499.772 I slot init_sampler: id  0 | task 540 | init sampler, took 0.64 ms, tokens: text = 4096, total = 4096
+8.57.227.312 I slot print_timing: id  0 | task 540 | prompt eval time =   62694.50 ms /  4096 tokens (   15.31 ms per token,    65.33 tokens per second)
+8.57.227.317 I slot print_timing: id  0 | task 540 |        eval time =    2163.77 ms /    16 tokens (  144.25 ms per token,     6.93 tokens per second)
+8.57.227.318 I slot print_timing: id  0 | task 540 |       total time =   64858.28 ms /  4112 tokens
+8.57.227.319 I slot print_timing: id  0 | task 540 |    graphs reused =        475
+8.57.227.320 I slot print_timing: id  0 | task 540 |   graph reallocs =          0    /     0        (same size) / (changed size)
+8.57.227.531 I slot      release: id  0 | task 540 | stop processing: n_tokens = 4111, truncated = 0
+8.57.227.545 I srv  update_slots: all slots are idle
+8.57.266.914 I srv  server_strea: conv_id= (empty=1)
+8.57.275.050 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/4096) > 0.100
+8.57.275.054 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 4111, t_last = 536716908
+8.57.275.188 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+8.57.275.198 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+8.57.275.200 I slot launch_slot_: id  0 | task 558 | processing task, is_child = 0
+8.57.275.206 I slot   operator(): id  0 | task 558 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 4096
+8.57.275.211 I slot   operator(): id  0 | task 558 | cached n_tokens = 0, memory_seq_rm [0, end)
+9.24.391.894 I slot print_timing: id  0 | task 558 | prompt processing, n_tokens =   2048, progress = 0.50, t =  27.12 s / 75.53 tokens per second
+9.24.391.898 I slot   operator(): id  0 | task 558 | cached n_tokens = 2048, memory_seq_rm [2048, end)
+9.24.392.453 I slot init_sampler: id  0 | task 558 | init sampler, took 0.51 ms, tokens: text = 4096, total = 4096
+10.02.194.017 I slot print_timing: id  0 | task 558 | prompt eval time =   62760.66 ms /  4096 tokens (   15.32 ms per token,    65.26 tokens per second)
+10.02.194.023 I slot print_timing: id  0 | task 558 |        eval time =    2158.13 ms /    16 tokens (  143.88 ms per token,     6.95 tokens per second)
+10.02.194.024 I slot print_timing: id  0 | task 558 |       total time =   64918.79 ms /  4112 tokens
+10.02.194.036 I slot print_timing: id  0 | task 558 |    graphs reused =        489
+10.02.194.039 I slot print_timing: id  0 | task 558 |   graph reallocs =          0    /     0        (same size) / (changed size)
+10.02.194.260 I slot      release: id  0 | task 558 | stop processing: n_tokens = 4111, truncated = 0
+10.02.194.276 I srv  update_slots: all slots are idle
+10.02.232.633 I srv  server_strea: conv_id= (empty=1)
+10.02.240.313 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/4096) > 0.100
+10.02.240.317 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 4111, t_last = 601683636
+10.02.240.433 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+10.02.240.444 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+10.02.240.446 I slot launch_slot_: id  0 | task 576 | processing task, is_child = 0
+10.02.240.451 I slot   operator(): id  0 | task 576 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 4096
+10.02.240.456 I slot   operator(): id  0 | task 576 | cached n_tokens = 0, memory_seq_rm [0, end)
+10.29.300.614 I slot print_timing: id  0 | task 576 | prompt processing, n_tokens =   2048, progress = 0.50, t =  27.06 s / 75.68 tokens per second
+10.29.300.618 I slot   operator(): id  0 | task 576 | cached n_tokens = 2048, memory_seq_rm [2048, end)
+10.29.301.175 I slot init_sampler: id  0 | task 576 | init sampler, took 0.51 ms, tokens: text = 4096, total = 4096
+11.07.241.843 I slot print_timing: id  0 | task 576 | prompt eval time =   62846.37 ms /  4096 tokens (   15.34 ms per token,    65.17 tokens per second)
+11.07.241.849 I slot print_timing: id  0 | task 576 |        eval time =    2155.00 ms /    16 tokens (  143.67 ms per token,     6.96 tokens per second)
+11.07.241.850 I slot print_timing: id  0 | task 576 |       total time =   65001.37 ms /  4112 tokens
+11.07.241.851 I slot print_timing: id  0 | task 576 |    graphs reused =        503
+11.07.241.852 I slot print_timing: id  0 | task 576 |   graph reallocs =          0    /     0        (same size) / (changed size)
+11.07.242.063 I slot      release: id  0 | task 576 | stop processing: n_tokens = 4111, truncated = 0
+11.07.242.079 I srv  update_slots: all slots are idle
+11.07.263.866 I srv  server_strea: conv_id= (empty=1)
+11.07.266.892 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+11.07.266.897 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 4111, t_last = 666731440
+11.07.267.087 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+11.07.267.099 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+11.07.267.101 I slot launch_slot_: id  0 | task 594 | processing task, is_child = 0
+11.07.267.107 I slot   operator(): id  0 | task 594 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+11.07.267.113 I slot   operator(): id  0 | task 594 | cached n_tokens = 0, memory_seq_rm [0, end)
+11.07.267.866 I slot init_sampler: id  0 | task 594 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+11.21.470.452 I slot print_timing: id  0 | task 594 | prompt eval time =   12660.20 ms /  1024 tokens (   12.36 ms per token,    80.88 tokens per second)
+11.21.470.458 I slot print_timing: id  0 | task 594 |        eval time =    1543.12 ms /    16 tokens (  102.87 ms per token,     9.72 tokens per second)
+11.21.470.460 I slot print_timing: id  0 | task 594 |       total time =   14203.32 ms /  1040 tokens
+11.21.470.461 I slot print_timing: id  0 | task 594 |    graphs reused =        517
+11.21.470.462 I slot print_timing: id  0 | task 594 |   graph reallocs =          0    /     0        (same size) / (changed size)
+11.21.470.591 I slot      release: id  0 | task 594 | stop processing: n_tokens = 1039, truncated = 0
+11.21.470.608 I srv  update_slots: all slots are idle
+11.21.514.771 I srv  server_strea: conv_id= (empty=1)
+11.21.519.607 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.001 (3/2048) > 0.100
+11.21.519.612 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 680959969
+11.21.519.784 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+11.21.519.794 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+11.21.519.796 I slot launch_slot_: id  0 | task 611 | processing task, is_child = 0
+11.21.519.802 I slot   operator(): id  0 | task 611 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+11.21.519.808 I slot   operator(): id  0 | task 611 | cached n_tokens = 3, memory_seq_rm [3, end)
+11.21.520.240 I slot init_sampler: id  0 | task 611 | init sampler, took 0.25 ms, tokens: text = 2048, total = 2048
+11.50.599.956 I slot print_timing: id  0 | task 611 | prompt eval time =   27315.07 ms /  2045 tokens (   13.36 ms per token,    74.87 tokens per second)
+11.50.599.962 I slot print_timing: id  0 | task 611 |        eval time =    1765.06 ms /    16 tokens (  117.67 ms per token,     8.50 tokens per second)
+11.50.599.963 I slot print_timing: id  0 | task 611 |       total time =   29080.13 ms /  2061 tokens
+11.50.599.964 I slot print_timing: id  0 | task 611 |    graphs reused =        531
+11.50.599.965 I slot print_timing: id  0 | task 611 |   graph reallocs =          0    /     0        (same size) / (changed size)
+11.50.600.225 I slot      release: id  0 | task 611 | stop processing: n_tokens = 2063, truncated = 0
+11.50.600.241 I srv  update_slots: all slots are idle
+11.50.606.256 I srv  server_strea: conv_id= (empty=1)
+11.50.610.705 I slot get_availabl: id  0 | task -1 |  - checking sim = 1.000 (2048/2048) > 0.100
+11.50.610.710 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 1.000 (> 0.100 thold), f_keep = 0.993
+11.50.610.951 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+11.50.610.963 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+11.50.610.965 I slot launch_slot_: id  0 | task 628 | processing task, is_child = 0
+11.50.610.972 I slot   operator(): id  0 | task 628 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+11.50.610.977 W slot   operator(): id  0 | task 628 | need to evaluate at least 1 token for each active slot (n_past = 2048, task.n_tokens() = 2048)
+11.50.610.978 W slot   operator(): id  0 | task 628 | n_past was set to 2047
+11.50.610.982 I slot   operator(): id  0 | task 628 | cached n_tokens = 2047, memory_seq_rm [2047, end)
+11.50.611.329 I slot init_sampler: id  0 | task 628 | init sampler, took 0.32 ms, tokens: text = 2048, total = 2048
+11.52.503.040 I slot print_timing: id  0 | task 628 | prompt eval time =     118.17 ms /     1 tokens (  118.17 ms per token,     8.46 tokens per second)
+11.52.503.046 I slot print_timing: id  0 | task 628 |        eval time =    1773.88 ms /    16 tokens (  118.26 ms per token,     8.46 tokens per second)
+11.52.503.047 I slot print_timing: id  0 | task 628 |       total time =    1892.05 ms /    17 tokens
+11.52.503.048 I slot print_timing: id  0 | task 628 |    graphs reused =        545
+11.52.503.049 I slot print_timing: id  0 | task 628 |   graph reallocs =          0    /     0        (same size) / (changed size)
+11.52.503.187 I slot      release: id  0 | task 628 | stop processing: n_tokens = 2063, truncated = 0
+11.52.503.207 I srv  update_slots: all slots are idle
+11.52.508.727 I srv  server_strea: conv_id= (empty=1)
+11.52.513.367 I slot get_availabl: id  0 | task -1 |  - checking sim = 1.000 (2048/2048) > 0.100
+11.52.513.372 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 1.000 (> 0.100 thold), f_keep = 0.993
+11.52.513.605 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+11.52.513.617 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+11.52.513.619 I slot launch_slot_: id  0 | task 645 | processing task, is_child = 0
+11.52.513.626 I slot   operator(): id  0 | task 645 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 2048
+11.52.513.630 W slot   operator(): id  0 | task 645 | need to evaluate at least 1 token for each active slot (n_past = 2048, task.n_tokens() = 2048)
+11.52.513.631 W slot   operator(): id  0 | task 645 | n_past was set to 2047
+11.52.513.635 I slot   operator(): id  0 | task 645 | cached n_tokens = 2047, memory_seq_rm [2047, end)
+11.52.513.977 I slot init_sampler: id  0 | task 645 | init sampler, took 0.31 ms, tokens: text = 2048, total = 2048
+11.54.427.395 I slot print_timing: id  0 | task 645 | prompt eval time =     113.91 ms /     1 tokens (  113.91 ms per token,     8.78 tokens per second)
+11.54.427.402 I slot print_timing: id  0 | task 645 |        eval time =    1799.83 ms /    16 tokens (  119.99 ms per token,     8.33 tokens per second)
+11.54.427.403 I slot print_timing: id  0 | task 645 |       total time =    1913.75 ms /    17 tokens
+11.54.427.404 I slot print_timing: id  0 | task 645 |    graphs reused =        559
+11.54.427.406 I slot print_timing: id  0 | task 645 |   graph reallocs =          0    /     0        (same size) / (changed size)
+11.54.427.568 I slot      release: id  0 | task 645 | stop processing: n_tokens = 2063, truncated = 0
+11.54.427.587 I srv  update_slots: all slots are idle
+11.54.458.169 I srv  server_strea: conv_id= (empty=1)
+11.54.460.807 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+11.54.460.810 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2063, t_last = 713916946
+11.54.461.015 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+11.54.461.026 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+11.54.461.028 I slot launch_slot_: id  0 | task 662 | processing task, is_child = 0
+11.54.461.034 I slot   operator(): id  0 | task 662 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+11.54.461.039 I slot   operator(): id  0 | task 662 | cached n_tokens = 0, memory_seq_rm [0, end)
+11.54.461.471 I slot init_sampler: id  0 | task 662 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+12.08.650.547 I slot print_timing: id  0 | task 662 | prompt eval time =   12628.07 ms /  1024 tokens (   12.33 ms per token,    81.09 tokens per second)
+12.08.650.553 I slot print_timing: id  0 | task 662 |        eval time =    1561.42 ms /    16 tokens (  104.09 ms per token,     9.61 tokens per second)
+12.08.650.554 I slot print_timing: id  0 | task 662 |       total time =   14189.49 ms /  1040 tokens
+12.08.650.555 I slot print_timing: id  0 | task 662 |    graphs reused =        573
+12.08.650.556 I slot print_timing: id  0 | task 662 |   graph reallocs =          0    /     0        (same size) / (changed size)
+12.08.650.702 I slot      release: id  0 | task 662 | stop processing: n_tokens = 1039, truncated = 0
+12.08.650.720 I srv  update_slots: all slots are idle
+12.08.672.550 I srv  server_strea: conv_id= (empty=1)
+12.08.674.877 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+12.08.674.881 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 728140080
+12.08.675.040 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+12.08.675.053 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+12.08.675.055 I slot launch_slot_: id  0 | task 679 | processing task, is_child = 0
+12.08.675.062 I slot   operator(): id  0 | task 679 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+12.08.675.068 I slot   operator(): id  0 | task 679 | cached n_tokens = 0, memory_seq_rm [0, end)
+12.08.675.395 I slot init_sampler: id  0 | task 679 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+12.22.826.862 I slot print_timing: id  0 | task 679 | prompt eval time =   12617.13 ms /  1024 tokens (   12.32 ms per token,    81.16 tokens per second)
+12.22.826.869 I slot print_timing: id  0 | task 679 |        eval time =    1534.65 ms /    16 tokens (  102.31 ms per token,     9.77 tokens per second)
+12.22.826.870 I slot print_timing: id  0 | task 679 |       total time =   14151.78 ms /  1040 tokens
+12.22.826.871 I slot print_timing: id  0 | task 679 |    graphs reused =        587
+12.22.826.873 I slot print_timing: id  0 | task 679 |   graph reallocs =          0    /     0        (same size) / (changed size)
+12.22.826.972 I slot      release: id  0 | task 679 | stop processing: n_tokens = 1039, truncated = 0
+12.22.826.988 I srv  update_slots: all slots are idle
+12.22.851.805 I srv  server_strea: conv_id= (empty=1)
+12.22.854.485 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+12.22.854.491 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 742316348
+12.22.854.762 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+12.22.854.778 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+12.22.854.781 I slot launch_slot_: id  0 | task 696 | processing task, is_child = 0
+12.22.854.789 I slot   operator(): id  0 | task 696 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+12.22.854.797 I slot   operator(): id  0 | task 696 | cached n_tokens = 0, memory_seq_rm [0, end)
+12.22.855.153 I slot init_sampler: id  0 | task 696 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+12.37.010.457 I slot print_timing: id  0 | task 696 | prompt eval time =   12611.94 ms /  1024 tokens (   12.32 ms per token,    81.19 tokens per second)
+12.37.010.462 I slot print_timing: id  0 | task 696 |        eval time =    1543.71 ms /    16 tokens (  102.91 ms per token,     9.72 tokens per second)
+12.37.010.463 I slot print_timing: id  0 | task 696 |       total time =   14155.65 ms /  1040 tokens
+12.37.010.464 I slot print_timing: id  0 | task 696 |    graphs reused =        601
+12.37.010.465 I slot print_timing: id  0 | task 696 |   graph reallocs =          0    /     0        (same size) / (changed size)
+12.37.010.544 I slot      release: id  0 | task 696 | stop processing: n_tokens = 1039, truncated = 0
+12.37.010.556 I srv  update_slots: all slots are idle
+12.37.031.104 I srv  server_strea: conv_id= (empty=1)
+12.37.033.484 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+12.37.033.489 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 756499919
+12.37.033.746 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+12.37.033.759 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+12.37.033.762 I slot launch_slot_: id  0 | task 713 | processing task, is_child = 0
+12.37.033.768 I slot   operator(): id  0 | task 713 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+12.37.033.774 I slot   operator(): id  0 | task 713 | cached n_tokens = 0, memory_seq_rm [0, end)
+12.37.034.131 I slot init_sampler: id  0 | task 713 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+12.51.210.027 I slot print_timing: id  0 | task 713 | prompt eval time =   12622.47 ms /  1024 tokens (   12.33 ms per token,    81.13 tokens per second)
+12.51.210.032 I slot print_timing: id  0 | task 713 |        eval time =    1553.77 ms /    16 tokens (  103.58 ms per token,     9.65 tokens per second)
+12.51.210.034 I slot print_timing: id  0 | task 713 |       total time =   14176.24 ms /  1040 tokens
+12.51.210.035 I slot print_timing: id  0 | task 713 |    graphs reused =        615
+12.51.210.036 I slot print_timing: id  0 | task 713 |   graph reallocs =          0    /     0        (same size) / (changed size)
+12.51.210.114 I slot      release: id  0 | task 713 | stop processing: n_tokens = 1039, truncated = 0
+12.51.210.127 I srv  update_slots: all slots are idle
+12.51.231.891 I srv  server_strea: conv_id= (empty=1)
+12.51.234.296 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+12.51.234.300 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 770699490
+12.51.234.546 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+12.51.234.557 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+12.51.234.559 I slot launch_slot_: id  0 | task 730 | processing task, is_child = 0
+12.51.234.567 I slot   operator(): id  0 | task 730 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+12.51.234.571 I slot   operator(): id  0 | task 730 | cached n_tokens = 0, memory_seq_rm [0, end)
+12.51.234.862 I slot init_sampler: id  0 | task 730 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+13.05.416.162 I slot print_timing: id  0 | task 730 | prompt eval time =   12612.52 ms /  1024 tokens (   12.32 ms per token,    81.19 tokens per second)
+13.05.416.169 I slot print_timing: id  0 | task 730 |        eval time =    1569.06 ms /    16 tokens (  104.60 ms per token,     9.56 tokens per second)
+13.05.416.171 I slot print_timing: id  0 | task 730 |       total time =   14181.58 ms /  1040 tokens
+13.05.416.172 I slot print_timing: id  0 | task 730 |    graphs reused =        629
+13.05.416.173 I slot print_timing: id  0 | task 730 |   graph reallocs =          0    /     0        (same size) / (changed size)
+13.05.416.276 I slot      release: id  0 | task 730 | stop processing: n_tokens = 1039, truncated = 0
+13.05.416.293 I srv  update_slots: all slots are idle
+13.05.437.532 I srv  server_strea: conv_id= (empty=1)
+13.05.439.900 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+13.05.439.906 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 784905654
+13.05.440.167 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+13.05.440.179 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+13.05.440.182 I slot launch_slot_: id  0 | task 747 | processing task, is_child = 0
+13.05.440.189 I slot   operator(): id  0 | task 747 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+13.05.440.194 I slot   operator(): id  0 | task 747 | cached n_tokens = 0, memory_seq_rm [0, end)
+13.05.440.556 I slot init_sampler: id  0 | task 747 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+13.19.638.234 I slot print_timing: id  0 | task 747 | prompt eval time =   12645.05 ms /  1024 tokens (   12.35 ms per token,    80.98 tokens per second)
+13.19.638.239 I slot print_timing: id  0 | task 747 |        eval time =    1552.97 ms /    16 tokens (  103.53 ms per token,     9.66 tokens per second)
+13.19.638.241 I slot print_timing: id  0 | task 747 |       total time =   14198.02 ms /  1040 tokens
+13.19.638.242 I slot print_timing: id  0 | task 747 |    graphs reused =        643
+13.19.638.243 I slot print_timing: id  0 | task 747 |   graph reallocs =          0    /     0        (same size) / (changed size)
+13.19.638.337 I slot      release: id  0 | task 747 | stop processing: n_tokens = 1039, truncated = 0
+13.19.638.355 I srv  update_slots: all slots are idle
+13.19.662.755 I srv  server_strea: conv_id= (empty=1)
+13.19.666.037 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+13.19.666.043 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1039, t_last = 799127713
+13.19.666.303 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+13.19.666.316 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+13.19.666.318 I slot launch_slot_: id  0 | task 764 | processing task, is_child = 0
+13.19.666.326 I slot   operator(): id  0 | task 764 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+13.19.666.333 I slot   operator(): id  0 | task 764 | cached n_tokens = 0, memory_seq_rm [0, end)
+13.19.666.698 I slot init_sampler: id  0 | task 764 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+13.38.742.511 I slot print_timing: id  0 | task 764 | prompt eval time =   12568.63 ms /  1024 tokens (   12.27 ms per token,    81.47 tokens per second)
+13.38.742.516 I slot print_timing: id  0 | task 764 |        eval time =    6507.54 ms /    64 tokens (  103.29 ms per token,     9.68 tokens per second)
+13.38.742.518 I slot print_timing: id  0 | task 764 |       total time =   19076.17 ms /  1088 tokens
+13.38.742.519 I slot print_timing: id  0 | task 764 |    graphs reused =        705
+13.38.742.520 I slot print_timing: id  0 | task 764 |   graph reallocs =          0    /     0        (same size) / (changed size)
+13.38.742.698 I slot      release: id  0 | task 764 | stop processing: n_tokens = 1087, truncated = 0
+13.38.742.714 I srv  update_slots: all slots are idle
+13.38.767.094 I srv  server_strea: conv_id= (empty=1)
+13.38.770.402 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+13.38.770.407 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 818232075
+13.38.770.660 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+13.38.770.673 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+13.38.770.675 I slot launch_slot_: id  0 | task 829 | processing task, is_child = 0
+13.38.770.682 I slot   operator(): id  0 | task 829 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+13.38.770.688 I slot   operator(): id  0 | task 829 | cached n_tokens = 0, memory_seq_rm [0, end)
+13.38.771.058 I slot init_sampler: id  0 | task 829 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+13.57.893.622 I slot print_timing: id  0 | task 829 | prompt eval time =   12592.37 ms /  1024 tokens (   12.30 ms per token,    81.32 tokens per second)
+13.57.893.627 I slot print_timing: id  0 | task 829 |        eval time =    6530.55 ms /    64 tokens (  103.66 ms per token,     9.65 tokens per second)
+13.57.893.629 I slot print_timing: id  0 | task 829 |       total time =   19122.92 ms /  1088 tokens
+13.57.893.630 I slot print_timing: id  0 | task 829 |    graphs reused =        767
+13.57.893.631 I slot print_timing: id  0 | task 829 |   graph reallocs =          0    /     0        (same size) / (changed size)
+13.57.893.704 I slot      release: id  0 | task 829 | stop processing: n_tokens = 1087, truncated = 0
+13.57.893.718 I srv  update_slots: all slots are idle
+13.57.916.697 I srv  server_strea: conv_id= (empty=1)
+13.57.919.988 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+13.57.919.993 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 837383080
+13.57.920.234 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+13.57.920.247 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+13.57.920.249 I slot launch_slot_: id  0 | task 894 | processing task, is_child = 0
+13.57.920.255 I slot   operator(): id  0 | task 894 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+13.57.920.261 I slot   operator(): id  0 | task 894 | cached n_tokens = 0, memory_seq_rm [0, end)
+13.57.920.560 I slot init_sampler: id  0 | task 894 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+14.17.431.162 I slot print_timing: id  0 | task 894 | prompt eval time =   12925.87 ms /  1024 tokens (   12.62 ms per token,    79.22 tokens per second)
+14.17.431.167 I slot print_timing: id  0 | task 894 |        eval time =    6585.02 ms /    64 tokens (  104.52 ms per token,     9.57 tokens per second)
+14.17.431.168 I slot print_timing: id  0 | task 894 |       total time =   19510.89 ms /  1088 tokens
+14.17.431.169 I slot print_timing: id  0 | task 894 |    graphs reused =        829
+14.17.431.170 I slot print_timing: id  0 | task 894 |   graph reallocs =          0    /     0        (same size) / (changed size)
+14.17.431.242 I slot      release: id  0 | task 894 | stop processing: n_tokens = 1087, truncated = 0
+14.17.431.255 I srv  update_slots: all slots are idle
+14.17.452.189 I srv  server_strea: conv_id= (empty=1)
+14.17.454.486 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+14.17.454.491 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 856920618
+14.17.454.759 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+14.17.454.770 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+14.17.454.772 I slot launch_slot_: id  0 | task 959 | processing task, is_child = 0
+14.17.454.778 I slot   operator(): id  0 | task 959 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+14.17.454.783 I slot   operator(): id  0 | task 959 | cached n_tokens = 0, memory_seq_rm [0, end)
+14.17.455.093 I slot init_sampler: id  0 | task 959 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+14.36.580.359 I slot print_timing: id  0 | task 959 | prompt eval time =   12631.14 ms /  1024 tokens (   12.34 ms per token,    81.07 tokens per second)
+14.36.580.364 I slot print_timing: id  0 | task 959 |        eval time =    6494.42 ms /    64 tokens (  103.09 ms per token,     9.70 tokens per second)
+14.36.580.365 I slot print_timing: id  0 | task 959 |       total time =   19125.56 ms /  1088 tokens
+14.36.580.366 I slot print_timing: id  0 | task 959 |    graphs reused =        891
+14.36.580.367 I slot print_timing: id  0 | task 959 |   graph reallocs =          0    /     0        (same size) / (changed size)
+14.36.580.443 I slot      release: id  0 | task 959 | stop processing: n_tokens = 1087, truncated = 0
+14.36.580.455 I srv  update_slots: all slots are idle
+14.36.602.255 I srv  server_strea: conv_id= (empty=1)
+14.36.605.064 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+14.36.605.070 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 876069819
+14.36.605.239 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+14.36.605.252 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+14.36.605.255 I slot launch_slot_: id  0 | task 1024 | processing task, is_child = 0
+14.36.605.263 I slot   operator(): id  0 | task 1024 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+14.36.605.270 I slot   operator(): id  0 | task 1024 | cached n_tokens = 0, memory_seq_rm [0, end)
+14.36.605.633 I slot init_sampler: id  0 | task 1024 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+14.55.758.585 I slot print_timing: id  0 | task 1024 | prompt eval time =   12619.07 ms /  1024 tokens (   12.32 ms per token,    81.15 tokens per second)
+14.55.758.591 I slot print_timing: id  0 | task 1024 |        eval time =    6534.23 ms /    64 tokens (  103.72 ms per token,     9.64 tokens per second)
+14.55.758.592 I slot print_timing: id  0 | task 1024 |       total time =   19153.30 ms /  1088 tokens
+14.55.758.593 I slot print_timing: id  0 | task 1024 |    graphs reused =        953
+14.55.758.594 I slot print_timing: id  0 | task 1024 |   graph reallocs =          0    /     0        (same size) / (changed size)
+14.55.758.673 I slot      release: id  0 | task 1024 | stop processing: n_tokens = 1087, truncated = 0
+14.55.758.687 I srv  update_slots: all slots are idle
+14.55.779.703 I srv  server_strea: conv_id= (empty=1)
+14.55.782.059 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+14.55.782.064 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1087, t_last = 895248048
+14.55.782.208 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+14.55.782.224 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+14.55.782.227 I slot launch_slot_: id  0 | task 1089 | processing task, is_child = 0
+14.55.782.235 I slot   operator(): id  0 | task 1089 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+14.55.782.242 I slot   operator(): id  0 | task 1089 | cached n_tokens = 0, memory_seq_rm [0, end)
+14.55.782.581 I slot init_sampler: id  0 | task 1089 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+15.18.587.571 I slot print_timing: id  0 | task 1089 | n_gen =    100, tg =   9.67 t/s, tg_3s =   9.77 t/s
+15.21.589.402 I slot print_timing: id  0 | task 1089 | n_gen =    129, tg =   9.67 t/s, tg_3s =   9.66 t/s
+15.24.602.415 I slot print_timing: id  0 | task 1089 | n_gen =    158, tg =   9.66 t/s, tg_3s =   9.62 t/s
+15.27.610.476 I slot print_timing: id  0 | task 1089 | n_gen =    187, tg =   9.66 t/s, tg_3s =   9.64 t/s
+15.30.652.734 I slot print_timing: id  0 | task 1089 | n_gen =    216, tg =   9.64 t/s, tg_3s =   9.53 t/s
+15.33.674.006 I slot print_timing: id  0 | task 1089 | n_gen =    245, tg =   9.63 t/s, tg_3s =   9.60 t/s
+15.34.815.654 I slot print_timing: id  0 | task 1089 | prompt eval time =   12564.84 ms /  1024 tokens (   12.27 ms per token,    81.50 tokens per second)
+15.34.815.662 I slot print_timing: id  0 | task 1089 |        eval time =   26468.55 ms /   256 tokens (  103.80 ms per token,     9.63 tokens per second)
+15.34.815.664 I slot print_timing: id  0 | task 1089 |       total time =   39033.39 ms /  1280 tokens
+15.34.815.665 I slot print_timing: id  0 | task 1089 |    graphs reused =       1207
+15.34.815.666 I slot print_timing: id  0 | task 1089 |   graph reallocs =          0    /     0        (same size) / (changed size)
+15.34.815.764 I slot      release: id  0 | task 1089 | stop processing: n_tokens = 1279, truncated = 0
+15.34.815.783 I srv  update_slots: all slots are idle
+15.34.839.048 I srv  server_strea: conv_id= (empty=1)
+15.34.841.553 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+15.34.841.559 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1279, t_last = 934305140
+15.34.841.812 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+15.34.841.827 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+15.34.841.830 I slot launch_slot_: id  0 | task 1346 | processing task, is_child = 0
+15.34.841.838 I slot   operator(): id  0 | task 1346 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+15.34.841.845 I slot   operator(): id  0 | task 1346 | cached n_tokens = 0, memory_seq_rm [0, end)
+15.34.842.246 I slot init_sampler: id  0 | task 1346 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+15.57.720.444 I slot print_timing: id  0 | task 1346 | n_gen =    100, tg =   9.66 t/s, tg_3s =   9.75 t/s
+16.00.748.855 I slot print_timing: id  0 | task 1346 | n_gen =    129, tg =   9.64 t/s, tg_3s =   9.58 t/s
+16.03.760.364 I slot print_timing: id  0 | task 1346 | n_gen =    158, tg =   9.64 t/s, tg_3s =   9.63 t/s
+16.06.761.854 I slot print_timing: id  0 | task 1346 | n_gen =    187, tg =   9.64 t/s, tg_3s =   9.66 t/s
+16.09.787.893 I slot print_timing: id  0 | task 1346 | n_gen =    216, tg =   9.63 t/s, tg_3s =   9.58 t/s
+16.12.792.070 I slot print_timing: id  0 | task 1346 | n_gen =    245, tg =   9.63 t/s, tg_3s =   9.65 t/s
+16.13.937.608 I slot print_timing: id  0 | task 1346 | prompt eval time =   12624.86 ms /  1024 tokens (   12.33 ms per token,    81.11 tokens per second)
+16.13.937.613 I slot print_timing: id  0 | task 1346 |        eval time =   26470.89 ms /   256 tokens (  103.81 ms per token,     9.63 tokens per second)
+16.13.937.615 I slot print_timing: id  0 | task 1346 |       total time =   39095.75 ms /  1280 tokens
+16.13.937.616 I slot print_timing: id  0 | task 1346 |    graphs reused =       1461
+16.13.937.617 I slot print_timing: id  0 | task 1346 |   graph reallocs =          0    /     0        (same size) / (changed size)
+16.13.937.689 I slot      release: id  0 | task 1346 | stop processing: n_tokens = 1279, truncated = 0
+16.13.937.703 I srv  update_slots: all slots are idle
+16.13.962.231 I srv  server_strea: conv_id= (empty=1)
+16.13.964.348 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+16.13.964.355 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1279, t_last = 973427064
+16.13.964.508 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+16.13.964.523 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+16.13.964.526 I slot launch_slot_: id  0 | task 1603 | processing task, is_child = 0
+16.13.964.535 I slot   operator(): id  0 | task 1603 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+16.13.964.542 I slot   operator(): id  0 | task 1603 | cached n_tokens = 0, memory_seq_rm [0, end)
+16.13.964.939 I slot init_sampler: id  0 | task 1603 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+16.36.755.132 I slot print_timing: id  0 | task 1603 | n_gen =    100, tg =   9.66 t/s, tg_3s =   9.76 t/s
+16.39.783.548 I slot print_timing: id  0 | task 1603 | n_gen =    129, tg =   9.64 t/s, tg_3s =   9.58 t/s
+16.42.799.419 I slot print_timing: id  0 | task 1603 | n_gen =    158, tg =   9.64 t/s, tg_3s =   9.62 t/s
+16.45.810.203 I slot print_timing: id  0 | task 1603 | n_gen =    187, tg =   9.64 t/s, tg_3s =   9.63 t/s
+16.48.834.376 I slot print_timing: id  0 | task 1603 | n_gen =    215, tg =   9.59 t/s, tg_3s =   9.26 t/s
+16.51.866.623 I slot print_timing: id  0 | task 1603 | n_gen =    243, tg =   9.54 t/s, tg_3s =   9.23 t/s
+16.53.220.952 I slot print_timing: id  0 | task 1603 | prompt eval time =   12547.27 ms /  1024 tokens (   12.25 ms per token,    81.61 tokens per second)
+16.53.220.958 I slot print_timing: id  0 | task 1603 |        eval time =   26709.14 ms /   256 tokens (  104.74 ms per token,     9.55 tokens per second)
+16.53.220.959 I slot print_timing: id  0 | task 1603 |       total time =   39256.40 ms /  1280 tokens
+16.53.220.960 I slot print_timing: id  0 | task 1603 |    graphs reused =       1715
+16.53.220.961 I slot print_timing: id  0 | task 1603 |   graph reallocs =          0    /     0        (same size) / (changed size)
+16.53.221.076 I slot      release: id  0 | task 1603 | stop processing: n_tokens = 1279, truncated = 0
+16.53.221.104 I srv  update_slots: all slots are idle
+16.53.243.310 I srv  server_strea: conv_id= (empty=1)
+16.53.245.405 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.004 (4/1024) > 0.100
+16.53.245.410 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1279, t_last = 1012710454
+16.53.245.716 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+16.53.245.729 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+16.53.245.731 I slot launch_slot_: id  0 | task 1860 | processing task, is_child = 0
+16.53.245.740 I slot   operator(): id  0 | task 1860 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+16.53.245.747 I slot   operator(): id  0 | task 1860 | cached n_tokens = 0, memory_seq_rm [0, end)
+16.53.246.147 I slot init_sampler: id  0 | task 1860 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+17.16.050.905 I slot print_timing: id  0 | task 1860 | n_gen =    100, tg =   9.68 t/s, tg_3s =   9.78 t/s
+17.19.123.715 I slot print_timing: id  0 | task 1860 | n_gen =    129, tg =   9.62 t/s, tg_3s =   9.44 t/s
+17.22.123.727 I slot print_timing: id  0 | task 1860 | n_gen =    158, tg =   9.63 t/s, tg_3s =   9.67 t/s
+17.25.212.605 I slot print_timing: id  0 | task 1860 | n_gen =    187, tg =   9.59 t/s, tg_3s =   9.39 t/s
+17.28.220.822 I slot print_timing: id  0 | task 1860 | n_gen =    216, tg =   9.60 t/s, tg_3s =   9.64 t/s
+17.31.225.446 I slot print_timing: id  0 | task 1860 | n_gen =    245, tg =   9.60 t/s, tg_3s =   9.65 t/s
+17.32.367.987 I slot print_timing: id  0 | task 1860 | prompt eval time =   12576.17 ms /  1024 tokens (   12.28 ms per token,    81.42 tokens per second)
+17.32.367.993 I slot print_timing: id  0 | task 1860 |        eval time =   26546.07 ms /   256 tokens (  104.10 ms per token,     9.61 tokens per second)
+17.32.367.994 I slot print_timing: id  0 | task 1860 |       total time =   39122.24 ms /  1280 tokens
+17.32.367.995 I slot print_timing: id  0 | task 1860 |    graphs reused =       1969
+17.32.367.996 I slot print_timing: id  0 | task 1860 |   graph reallocs =          0    /     0        (same size) / (changed size)
+17.32.368.086 I slot      release: id  0 | task 1860 | stop processing: n_tokens = 1279, truncated = 0
+17.32.368.101 I srv  update_slots: all slots are idle
+17.32.401.191 I srv  server_strea: conv_id= (empty=1)
+17.32.403.955 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+17.32.403.961 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1279, t_last = 1051857461
+17.32.404.232 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+17.32.404.246 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+17.32.404.250 I slot launch_slot_: id  0 | task 2117 | processing task, is_child = 0
+17.32.404.259 I slot   operator(): id  0 | task 2117 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+17.32.404.266 I slot   operator(): id  0 | task 2117 | cached n_tokens = 0, memory_seq_rm [0, end)
+17.32.404.668 I slot init_sampler: id  0 | task 2117 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+17.55.269.616 I slot print_timing: id  0 | task 2117 | n_gen =    100, tg =   9.66 t/s, tg_3s =   9.76 t/s
+17.58.309.861 I slot print_timing: id  0 | task 2117 | n_gen =    129, tg =   9.63 t/s, tg_3s =   9.54 t/s
+18.01.332.801 I slot print_timing: id  0 | task 2117 | n_gen =    158, tg =   9.62 t/s, tg_3s =   9.59 t/s
+18.04.351.362 I slot print_timing: id  0 | task 2117 | n_gen =    187, tg =   9.62 t/s, tg_3s =   9.61 t/s
+18.07.364.057 I slot print_timing: id  0 | task 2117 | n_gen =    216, tg =   9.62 t/s, tg_3s =   9.63 t/s
+18.10.376.799 I slot print_timing: id  0 | task 2117 | n_gen =    245, tg =   9.62 t/s, tg_3s =   9.63 t/s
+18.11.519.123 I slot print_timing: id  0 | task 2117 | prompt eval time =   12615.24 ms /  1024 tokens (   12.32 ms per token,    81.17 tokens per second)
+18.11.519.128 I slot print_timing: id  0 | task 2117 |        eval time =   26499.61 ms /   256 tokens (  103.92 ms per token,     9.62 tokens per second)
+18.11.519.129 I slot print_timing: id  0 | task 2117 |       total time =   39114.85 ms /  1280 tokens
+18.11.519.131 I slot print_timing: id  0 | task 2117 |    graphs reused =       2223
+18.11.519.132 I slot print_timing: id  0 | task 2117 |   graph reallocs =          0    /     0        (same size) / (changed size)
+18.11.519.341 I slot      release: id  0 | task 2117 | stop processing: n_tokens = 1279, truncated = 0
+18.11.519.357 I srv  update_slots: all slots are idle
+18.11.540.220 I srv  server_strea: conv_id= (empty=1)
+18.11.542.574 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+18.11.542.579 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1279, t_last = 1091008718
+18.11.542.835 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+18.11.542.848 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+18.11.542.851 I slot launch_slot_: id  0 | task 2374 | processing task, is_child = 0
+18.11.542.858 I slot   operator(): id  0 | task 2374 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+18.11.542.863 I slot   operator(): id  0 | task 2374 | cached n_tokens = 0, memory_seq_rm [0, end)
+18.11.543.262 I slot init_sampler: id  0 | task 2374 | init sampler, took 0.16 ms, tokens: text = 1024, total = 1024
+18.34.411.610 I slot print_timing: id  0 | task 2374 | n_gen =    100, tg =   9.67 t/s, tg_3s =   9.77 t/s
+18.37.416.925 I slot print_timing: id  0 | task 2374 | n_gen =    129, tg =   9.67 t/s, tg_3s =   9.65 t/s
+18.40.522.318 I slot print_timing: id  0 | task 2374 | n_gen =    159, tg =   9.66 t/s, tg_3s =   9.66 t/s
+18.43.538.771 I slot print_timing: id  0 | task 2374 | n_gen =    188, tg =   9.66 t/s, tg_3s =   9.61 t/s
+18.46.559.157 I slot print_timing: id  0 | task 2374 | n_gen =    217, tg =   9.65 t/s, tg_3s =   9.60 t/s
+18.49.582.904 I slot print_timing: id  0 | task 2374 | n_gen =    246, tg =   9.64 t/s, tg_3s =   9.59 t/s
+18.52.658.457 I slot print_timing: id  0 | task 2374 | n_gen =    275, tg =   9.62 t/s, tg_3s =   9.43 t/s
+18.55.750.302 I slot print_timing: id  0 | task 2374 | n_gen =    304, tg =   9.60 t/s, tg_3s =   9.38 t/s
+18.58.759.083 I slot print_timing: id  0 | task 2374 | n_gen =    332, tg =   9.57 t/s, tg_3s =   9.31 t/s
+19.01.764.259 I slot print_timing: id  0 | task 2374 | n_gen =    360, tg =   9.55 t/s, tg_3s =   9.32 t/s
+19.04.863.593 I slot print_timing: id  0 | task 2374 | n_gen =    389, tg =   9.54 t/s, tg_3s =   9.36 t/s
+19.07.956.426 I slot print_timing: id  0 | task 2374 | n_gen =    418, tg =   9.52 t/s, tg_3s =   9.38 t/s
+19.11.061.505 I slot print_timing: id  0 | task 2374 | n_gen =    447, tg =   9.51 t/s, tg_3s =   9.34 t/s
+19.14.074.196 I slot print_timing: id  0 | task 2374 | n_gen =    475, tg =   9.50 t/s, tg_3s =   9.29 t/s
+19.17.078.904 I slot print_timing: id  0 | task 2374 | n_gen =    503, tg =   9.49 t/s, tg_3s =   9.32 t/s
+19.20.145.310 I slot print_timing: id  0 | task 2374 | n_gen =    531, tg =   9.47 t/s, tg_3s =   9.13 t/s
+19.23.223.837 I slot print_timing: id  0 | task 2374 | n_gen =    559, tg =   9.45 t/s, tg_3s =   9.10 t/s
+19.26.301.543 I slot print_timing: id  0 | task 2374 | n_gen =    587, tg =   9.43 t/s, tg_3s =   9.10 t/s
+19.29.397.052 I slot print_timing: id  0 | task 2374 | n_gen =    615, tg =   9.41 t/s, tg_3s =   9.05 t/s
+19.32.483.292 I slot print_timing: id  0 | task 2374 | n_gen =    643, tg =   9.40 t/s, tg_3s =   9.07 t/s
+19.35.580.162 I slot print_timing: id  0 | task 2374 | n_gen =    671, tg =   9.38 t/s, tg_3s =   9.04 t/s
+19.38.673.320 I slot print_timing: id  0 | task 2374 | n_gen =    699, tg =   9.37 t/s, tg_3s =   9.05 t/s
+19.41.768.306 I slot print_timing: id  0 | task 2374 | n_gen =    727, tg =   9.36 t/s, tg_3s =   9.05 t/s
+19.44.774.315 I slot print_timing: id  0 | task 2374 | n_gen =    754, tg =   9.34 t/s, tg_3s =   8.98 t/s
+19.47.800.538 I slot print_timing: id  0 | task 2374 | n_gen =    781, tg =   9.33 t/s, tg_3s =   8.92 t/s
+19.50.864.719 I slot print_timing: id  0 | task 2374 | n_gen =    808, tg =   9.31 t/s, tg_3s =   8.81 t/s
+19.53.955.789 I slot print_timing: id  0 | task 2374 | n_gen =    835, tg =   9.29 t/s, tg_3s =   8.73 t/s
+19.57.010.609 I slot print_timing: id  0 | task 2374 | n_gen =    862, tg =   9.27 t/s, tg_3s =   8.84 t/s
+20.00.107.106 I slot print_timing: id  0 | task 2374 | n_gen =    889, tg =   9.26 t/s, tg_3s =   8.72 t/s
+20.03.176.467 I slot print_timing: id  0 | task 2374 | n_gen =    916, tg =   9.24 t/s, tg_3s =   8.80 t/s
+20.06.249.257 I slot print_timing: id  0 | task 2374 | n_gen =    943, tg =   9.23 t/s, tg_3s =   8.79 t/s
+20.09.332.991 I slot print_timing: id  0 | task 2374 | n_gen =    970, tg =   9.21 t/s, tg_3s =   8.76 t/s
+20.12.442.217 I slot print_timing: id  0 | task 2374 | n_gen =    997, tg =   9.20 t/s, tg_3s =   8.68 t/s
+20.15.533.667 I slot print_timing: id  0 | task 2374 | prompt eval time =   12630.83 ms /  1024 tokens (   12.33 ms per token,    81.07 tokens per second)
+20.15.533.673 I slot print_timing: id  0 | task 2374 |        eval time =  111359.96 ms /  1024 tokens (  108.86 ms per token,     9.19 tokens per second)
+20.15.533.674 I slot print_timing: id  0 | task 2374 |       total time =  123990.79 ms /  2048 tokens
+20.15.533.675 I slot print_timing: id  0 | task 2374 |    graphs reused =       3242
+20.15.533.677 I slot print_timing: id  0 | task 2374 |   graph reallocs =          0    /     0        (same size) / (changed size)
+20.15.533.752 I slot      release: id  0 | task 2374 | stop processing: n_tokens = 2047, truncated = 0
+20.15.533.773 I srv  update_slots: all slots are idle
+20.15.556.233 I srv  server_strea: conv_id= (empty=1)
+20.15.558.804 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+20.15.558.809 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2047, t_last = 1215023128
+20.15.559.043 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+20.15.559.054 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+20.15.559.056 I slot launch_slot_: id  0 | task 3399 | processing task, is_child = 0
+20.15.559.062 I slot   operator(): id  0 | task 3399 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+20.15.559.066 I slot   operator(): id  0 | task 3399 | cached n_tokens = 0, memory_seq_rm [0, end)
+20.15.559.497 I slot init_sampler: id  0 | task 3399 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+20.38.432.405 I slot print_timing: id  0 | task 3399 | n_gen =    100, tg =   9.61 t/s, tg_3s =   9.71 t/s
+20.41.446.275 I slot print_timing: id  0 | task 3399 | n_gen =    129, tg =   9.61 t/s, tg_3s =   9.62 t/s
+20.44.451.731 I slot print_timing: id  0 | task 3399 | n_gen =    158, tg =   9.62 t/s, tg_3s =   9.65 t/s
+20.47.454.844 I slot print_timing: id  0 | task 3399 | n_gen =    187, tg =   9.63 t/s, tg_3s =   9.66 t/s
+20.50.471.622 I slot print_timing: id  0 | task 3399 | n_gen =    216, tg =   9.62 t/s, tg_3s =   9.61 t/s
+20.53.486.101 I slot print_timing: id  0 | task 3399 | n_gen =    245, tg =   9.62 t/s, tg_3s =   9.62 t/s
+20.56.545.222 I slot print_timing: id  0 | task 3399 | n_gen =    274, tg =   9.61 t/s, tg_3s =   9.48 t/s
+20.59.645.239 I slot print_timing: id  0 | task 3399 | n_gen =    303, tg =   9.58 t/s, tg_3s =   9.35 t/s
+21.02.734.990 I slot print_timing: id  0 | task 3399 | n_gen =    332, tg =   9.57 t/s, tg_3s =   9.39 t/s
+21.05.825.049 I slot print_timing: id  0 | task 3399 | n_gen =    361, tg =   9.55 t/s, tg_3s =   9.38 t/s
+21.08.827.014 I slot print_timing: id  0 | task 3399 | n_gen =    389, tg =   9.53 t/s, tg_3s =   9.33 t/s
+21.11.923.472 I slot print_timing: id  0 | task 3399 | n_gen =    418, tg =   9.52 t/s, tg_3s =   9.37 t/s
+21.14.925.601 I slot print_timing: id  0 | task 3399 | n_gen =    446, tg =   9.51 t/s, tg_3s =   9.33 t/s
+21.17.944.448 I slot print_timing: id  0 | task 3399 | n_gen =    474, tg =   9.50 t/s, tg_3s =   9.28 t/s
+21.20.961.475 I slot print_timing: id  0 | task 3399 | n_gen =    502, tg =   9.48 t/s, tg_3s =   9.28 t/s
+21.24.016.151 I slot print_timing: id  0 | task 3399 | n_gen =    530, tg =   9.47 t/s, tg_3s =   9.17 t/s
+21.27.087.915 I slot print_timing: id  0 | task 3399 | n_gen =    558, tg =   9.45 t/s, tg_3s =   9.12 t/s
+21.30.176.662 I slot print_timing: id  0 | task 3399 | n_gen =    586, tg =   9.43 t/s, tg_3s =   9.07 t/s
+21.33.256.118 I slot print_timing: id  0 | task 3399 | n_gen =    614, tg =   9.41 t/s, tg_3s =   9.09 t/s
+21.36.355.812 I slot print_timing: id  0 | task 3399 | n_gen =    642, tg =   9.40 t/s, tg_3s =   9.03 t/s
+21.39.452.121 I slot print_timing: id  0 | task 3399 | n_gen =    670, tg =   9.38 t/s, tg_3s =   9.04 t/s
+21.42.507.573 I slot print_timing: id  0 | task 3399 | n_gen =    697, tg =   9.36 t/s, tg_3s =   8.84 t/s
+21.45.565.729 I slot print_timing: id  0 | task 3399 | n_gen =    724, tg =   9.34 t/s, tg_3s =   8.83 t/s
+21.48.578.120 I slot print_timing: id  0 | task 3399 | n_gen =    751, tg =   9.32 t/s, tg_3s =   8.96 t/s
+21.51.641.098 I slot print_timing: id  0 | task 3399 | n_gen =    778, tg =   9.30 t/s, tg_3s =   8.81 t/s
+21.54.735.428 I slot print_timing: id  0 | task 3399 | n_gen =    805, tg =   9.28 t/s, tg_3s =   8.73 t/s
+21.57.803.794 I slot print_timing: id  0 | task 3399 | n_gen =    832, tg =   9.27 t/s, tg_3s =   8.80 t/s
+22.00.805.453 I slot print_timing: id  0 | task 3399 | n_gen =    858, tg =   9.25 t/s, tg_3s =   8.66 t/s
+22.03.892.577 I slot print_timing: id  0 | task 3399 | n_gen =    885, tg =   9.23 t/s, tg_3s =   8.75 t/s
+22.06.996.910 I slot print_timing: id  0 | task 3399 | n_gen =    912, tg =   9.21 t/s, tg_3s =   8.70 t/s
+22.10.091.171 I slot print_timing: id  0 | task 3399 | n_gen =    939, tg =   9.20 t/s, tg_3s =   8.73 t/s
+22.13.166.642 I slot print_timing: id  0 | task 3399 | n_gen =    966, tg =   9.19 t/s, tg_3s =   8.78 t/s
+22.16.238.760 I slot print_timing: id  0 | task 3399 | n_gen =    992, tg =   9.17 t/s, tg_3s =   8.46 t/s
+22.19.310.117 I slot print_timing: id  0 | task 3399 | n_gen =   1018, tg =   9.15 t/s, tg_3s =   8.47 t/s
+22.20.014.342 I slot print_timing: id  0 | task 3399 | prompt eval time =   12573.01 ms /  1024 tokens (   12.28 ms per token,    81.44 tokens per second)
+22.20.014.347 I slot print_timing: id  0 | task 3399 |        eval time =  111882.25 ms /  1024 tokens (  109.37 ms per token,     9.14 tokens per second)
+22.20.014.348 I slot print_timing: id  0 | task 3399 |       total time =  124455.26 ms /  2048 tokens
+22.20.014.349 I slot print_timing: id  0 | task 3399 |    graphs reused =       4261
+22.20.014.350 I slot print_timing: id  0 | task 3399 |   graph reallocs =          0    /     0        (same size) / (changed size)
+22.20.014.487 I slot      release: id  0 | task 3399 | stop processing: n_tokens = 2047, truncated = 0
+22.20.014.513 I srv  update_slots: all slots are idle
+22.20.038.461 I srv  server_strea: conv_id= (empty=1)
+22.20.041.075 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+22.20.041.079 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2047, t_last = 1339503865
+22.20.041.313 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+22.20.041.324 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+22.20.041.326 I slot launch_slot_: id  0 | task 4424 | processing task, is_child = 0
+22.20.041.333 I slot   operator(): id  0 | task 4424 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+22.20.041.338 I slot   operator(): id  0 | task 4424 | cached n_tokens = 0, memory_seq_rm [0, end)
+22.20.041.778 I slot init_sampler: id  0 | task 4424 | init sampler, took 0.12 ms, tokens: text = 1024, total = 1024
+22.42.815.622 I slot print_timing: id  0 | task 4424 | n_gen =    100, tg =   9.67 t/s, tg_3s =   9.77 t/s
+22.45.831.574 I slot print_timing: id  0 | task 4424 | n_gen =    129, tg =   9.66 t/s, tg_3s =   9.62 t/s
+22.48.929.492 I slot print_timing: id  0 | task 4424 | n_gen =    159, tg =   9.66 t/s, tg_3s =   9.68 t/s
+22.51.943.742 I slot print_timing: id  0 | task 4424 | n_gen =    188, tg =   9.66 t/s, tg_3s =   9.62 t/s
+22.54.990.765 I slot print_timing: id  0 | task 4424 | n_gen =    217, tg =   9.64 t/s, tg_3s =   9.52 t/s
+22.58.002.693 I slot print_timing: id  0 | task 4424 | n_gen =    246, tg =   9.64 t/s, tg_3s =   9.63 t/s
+23.01.059.216 I slot print_timing: id  0 | task 4424 | n_gen =    275, tg =   9.62 t/s, tg_3s =   9.49 t/s
+23.04.135.859 I slot print_timing: id  0 | task 4424 | n_gen =    304, tg =   9.60 t/s, tg_3s =   9.43 t/s
+23.07.225.250 I slot print_timing: id  0 | task 4424 | n_gen =    333, tg =   9.58 t/s, tg_3s =   9.39 t/s
+23.10.311.213 I slot print_timing: id  0 | task 4424 | n_gen =    362, tg =   9.57 t/s, tg_3s =   9.40 t/s
+23.13.411.264 I slot print_timing: id  0 | task 4424 | n_gen =    391, tg =   9.55 t/s, tg_3s =   9.35 t/s
+23.16.413.165 I slot print_timing: id  0 | task 4424 | n_gen =    419, tg =   9.54 t/s, tg_3s =   9.33 t/s
+23.19.429.912 I slot print_timing: id  0 | task 4424 | n_gen =    447, tg =   9.52 t/s, tg_3s =   9.28 t/s
+23.22.432.817 I slot print_timing: id  0 | task 4424 | n_gen =    475, tg =   9.51 t/s, tg_3s =   9.32 t/s
+23.25.437.197 I slot print_timing: id  0 | task 4424 | n_gen =    503, tg =   9.50 t/s, tg_3s =   9.32 t/s
+23.28.493.017 I slot print_timing: id  0 | task 4424 | n_gen =    531, tg =   9.48 t/s, tg_3s =   9.16 t/s
+23.31.569.318 I slot print_timing: id  0 | task 4424 | n_gen =    559, tg =   9.46 t/s, tg_3s =   9.10 t/s
+23.34.645.928 I slot print_timing: id  0 | task 4424 | n_gen =    587, tg =   9.44 t/s, tg_3s =   9.10 t/s
+23.37.725.826 I slot print_timing: id  0 | task 4424 | n_gen =    615, tg =   9.42 t/s, tg_3s =   9.09 t/s
+23.40.803.247 I slot print_timing: id  0 | task 4424 | n_gen =    643, tg =   9.41 t/s, tg_3s =   9.10 t/s
+23.43.900.036 I slot print_timing: id  0 | task 4424 | n_gen =    671, tg =   9.39 t/s, tg_3s =   9.04 t/s
+23.46.993.935 I slot print_timing: id  0 | task 4424 | n_gen =    699, tg =   9.38 t/s, tg_3s =   9.05 t/s
+23.50.097.681 I slot print_timing: id  0 | task 4424 | n_gen =    727, tg =   9.37 t/s, tg_3s =   9.02 t/s
+23.53.199.181 I slot print_timing: id  0 | task 4424 | n_gen =    755, tg =   9.35 t/s, tg_3s =   9.03 t/s
+23.56.227.517 I slot print_timing: id  0 | task 4424 | n_gen =    782, tg =   9.34 t/s, tg_3s =   8.92 t/s
+23.59.288.299 I slot print_timing: id  0 | task 4424 | n_gen =    809, tg =   9.32 t/s, tg_3s =   8.82 t/s
+24.02.364.835 I slot print_timing: id  0 | task 4424 | n_gen =    836, tg =   9.30 t/s, tg_3s =   8.78 t/s
+24.05.420.045 I slot print_timing: id  0 | task 4424 | n_gen =    863, tg =   9.28 t/s, tg_3s =   8.84 t/s
+24.08.487.750 I slot print_timing: id  0 | task 4424 | n_gen =    890, tg =   9.27 t/s, tg_3s =   8.80 t/s
+24.11.559.985 I slot print_timing: id  0 | task 4424 | n_gen =    917, tg =   9.25 t/s, tg_3s =   8.79 t/s
+24.14.627.992 I slot print_timing: id  0 | task 4424 | n_gen =    944, tg =   9.24 t/s, tg_3s =   8.80 t/s
+24.17.715.793 I slot print_timing: id  0 | task 4424 | n_gen =    971, tg =   9.23 t/s, tg_3s =   8.74 t/s
+24.20.794.526 I slot print_timing: id  0 | task 4424 | n_gen =    998, tg =   9.21 t/s, tg_3s =   8.77 t/s
+24.23.777.935 I slot print_timing: id  0 | task 4424 | prompt eval time =   12538.11 ms /  1024 tokens (   12.24 ms per token,    81.67 tokens per second)
+24.23.777.941 I slot print_timing: id  0 | task 4424 |        eval time =  111198.47 ms /  1024 tokens (  108.70 ms per token,     9.20 tokens per second)
+24.23.777.942 I slot print_timing: id  0 | task 4424 |       total time =  123736.58 ms /  2048 tokens
+24.23.777.943 I slot print_timing: id  0 | task 4424 |    graphs reused =       5280
+24.23.777.944 I slot print_timing: id  0 | task 4424 |   graph reallocs =          0    /     0        (same size) / (changed size)
+24.23.778.022 I slot      release: id  0 | task 4424 | stop processing: n_tokens = 2047, truncated = 0
+24.23.778.046 I srv  update_slots: all slots are idle
+24.23.800.687 I srv  server_strea: conv_id= (empty=1)
+24.23.802.982 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+24.23.802.989 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2047, t_last = 1463267398
+24.23.803.156 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+24.23.803.170 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+24.23.803.173 I slot launch_slot_: id  0 | task 5449 | processing task, is_child = 0
+24.23.803.181 I slot   operator(): id  0 | task 5449 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+24.23.803.188 I slot   operator(): id  0 | task 5449 | cached n_tokens = 0, memory_seq_rm [0, end)
+24.23.803.720 I slot init_sampler: id  0 | task 5449 | init sampler, took 0.15 ms, tokens: text = 1024, total = 1024
+24.46.608.987 I slot print_timing: id  0 | task 5449 | n_gen =    100, tg =   9.65 t/s, tg_3s =   9.75 t/s
+24.49.611.500 I slot print_timing: id  0 | task 5449 | n_gen =    129, tg =   9.66 t/s, tg_3s =   9.66 t/s
+24.52.615.357 I slot print_timing: id  0 | task 5449 | n_gen =    158, tg =   9.66 t/s, tg_3s =   9.65 t/s
+24.55.644.861 I slot print_timing: id  0 | task 5449 | n_gen =    187, tg =   9.64 t/s, tg_3s =   9.57 t/s
+24.58.657.495 I slot print_timing: id  0 | task 5449 | n_gen =    216, tg =   9.64 t/s, tg_3s =   9.63 t/s
+25.01.687.525 I slot print_timing: id  0 | task 5449 | n_gen =    245, tg =   9.63 t/s, tg_3s =   9.57 t/s
+25.04.764.741 I slot print_timing: id  0 | task 5449 | n_gen =    274, tg =   9.61 t/s, tg_3s =   9.42 t/s
+25.07.861.777 I slot print_timing: id  0 | task 5449 | n_gen =    303, tg =   9.59 t/s, tg_3s =   9.36 t/s
+25.10.960.757 I slot print_timing: id  0 | task 5449 | n_gen =    332, tg =   9.56 t/s, tg_3s =   9.36 t/s
+25.14.066.899 I slot print_timing: id  0 | task 5449 | n_gen =    361, tg =   9.55 t/s, tg_3s =   9.34 t/s
+25.17.171.763 I slot print_timing: id  0 | task 5449 | n_gen =    390, tg =   9.53 t/s, tg_3s =   9.34 t/s
+25.20.268.253 I slot print_timing: id  0 | task 5449 | n_gen =    419, tg =   9.52 t/s, tg_3s =   9.37 t/s
+25.23.271.112 I slot print_timing: id  0 | task 5449 | n_gen =    447, tg =   9.51 t/s, tg_3s =   9.32 t/s
+25.26.271.573 I slot print_timing: id  0 | task 5449 | n_gen =    475, tg =   9.50 t/s, tg_3s =   9.33 t/s
+25.29.289.685 I slot print_timing: id  0 | task 5449 | n_gen =    503, tg =   9.48 t/s, tg_3s =   9.28 t/s
+25.32.339.884 I slot print_timing: id  0 | task 5449 | n_gen =    531, tg =   9.47 t/s, tg_3s =   9.18 t/s
+25.35.406.434 I slot print_timing: id  0 | task 5449 | n_gen =    559, tg =   9.45 t/s, tg_3s =   9.13 t/s
+25.38.490.236 I slot print_timing: id  0 | task 5449 | n_gen =    587, tg =   9.43 t/s, tg_3s =   9.08 t/s
+25.41.576.218 I slot print_timing: id  0 | task 5449 | n_gen =    615, tg =   9.41 t/s, tg_3s =   9.07 t/s
+25.44.656.501 I slot print_timing: id  0 | task 5449 | n_gen =    643, tg =   9.40 t/s, tg_3s =   9.09 t/s
+25.47.747.731 I slot print_timing: id  0 | task 5449 | n_gen =    671, tg =   9.38 t/s, tg_3s =   9.06 t/s
+25.50.827.338 I slot print_timing: id  0 | task 5449 | n_gen =    699, tg =   9.37 t/s, tg_3s =   9.09 t/s
+25.53.925.093 I slot print_timing: id  0 | task 5449 | n_gen =    727, tg =   9.36 t/s, tg_3s =   9.04 t/s
+25.56.928.308 I slot print_timing: id  0 | task 5449 | n_gen =    751, tg =   9.31 t/s, tg_3s =   7.99 t/s
+25.59.942.755 I slot print_timing: id  0 | task 5449 | n_gen =    778, tg =   9.30 t/s, tg_3s =   8.96 t/s
+26.03.011.180 I slot print_timing: id  0 | task 5449 | n_gen =    805, tg =   9.28 t/s, tg_3s =   8.80 t/s
+26.06.073.806 I slot print_timing: id  0 | task 5449 | n_gen =    832, tg =   9.26 t/s, tg_3s =   8.82 t/s
+26.09.146.980 I slot print_timing: id  0 | task 5449 | n_gen =    859, tg =   9.25 t/s, tg_3s =   8.79 t/s
+26.12.218.436 I slot print_timing: id  0 | task 5449 | n_gen =    886, tg =   9.23 t/s, tg_3s =   8.79 t/s
+26.15.283.079 I slot print_timing: id  0 | task 5449 | n_gen =    913, tg =   9.22 t/s, tg_3s =   8.81 t/s
+26.18.360.785 I slot print_timing: id  0 | task 5449 | n_gen =    940, tg =   9.21 t/s, tg_3s =   8.77 t/s
+26.21.437.044 I slot print_timing: id  0 | task 5449 | n_gen =    967, tg =   9.19 t/s, tg_3s =   8.78 t/s
+26.24.530.963 I slot print_timing: id  0 | task 5449 | n_gen =    994, tg =   9.18 t/s, tg_3s =   8.73 t/s
+26.27.623.913 I slot print_timing: id  0 | task 5449 | n_gen =   1021, tg =   9.17 t/s, tg_3s =   8.73 t/s
+26.27.966.505 I slot print_timing: id  0 | task 5449 | prompt eval time =   12551.23 ms /  1024 tokens (   12.26 ms per token,    81.59 tokens per second)
+26.27.966.510 I slot print_timing: id  0 | task 5449 |        eval time =  111612.08 ms /  1024 tokens (  109.10 ms per token,     9.17 tokens per second)
+26.27.966.512 I slot print_timing: id  0 | task 5449 |       total time =  124163.30 ms /  2048 tokens
+26.27.966.513 I slot print_timing: id  0 | task 5449 |    graphs reused =       6299
+26.27.966.514 I slot print_timing: id  0 | task 5449 |   graph reallocs =          0    /     0        (same size) / (changed size)
+26.27.966.712 I slot      release: id  0 | task 5449 | stop processing: n_tokens = 2047, truncated = 0
+26.27.966.735 I srv  update_slots: all slots are idle
+26.27.989.715 I srv  server_strea: conv_id= (empty=1)
+26.27.992.196 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.003 (3/1024) > 0.100
+26.27.992.200 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2047, t_last = 1587456089
+26.27.992.405 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> logit-bias -> ?penalties -> ?dry -> ?top-n-sigma -> ?top-k -> ?typical -> ?top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+26.27.992.416 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 0, top_p = 1.000, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+26.27.992.418 I slot launch_slot_: id  0 | task 6474 | processing task, is_child = 0
+26.27.992.424 I slot   operator(): id  0 | task 6474 | new prompt, n_ctx_slot = 16384, n_keep = 0, task.n_tokens = 1024
+26.27.992.429 I slot   operator(): id  0 | task 6474 | cached n_tokens = 0, memory_seq_rm [0, end)
+26.27.992.864 I slot init_sampler: id  0 | task 6474 | init sampler, took 0.13 ms, tokens: text = 1024, total = 1024
+26.50.866.664 I slot print_timing: id  0 | task 6474 | n_gen =    100, tg =   9.64 t/s, tg_3s =   9.73 t/s
+26.53.885.914 I slot print_timing: id  0 | task 6474 | n_gen =    129, tg =   9.63 t/s, tg_3s =   9.61 t/s
+26.56.909.723 I slot print_timing: id  0 | task 6474 | n_gen =    158, tg =   9.62 t/s, tg_3s =   9.59 t/s
+26.59.926.275 I slot print_timing: id  0 | task 6474 | n_gen =    187, tg =   9.62 t/s, tg_3s =   9.61 t/s
+27.02.936.321 I slot print_timing: id  0 | task 6474 | n_gen =    216, tg =   9.62 t/s, tg_3s =   9.63 t/s
+27.06.033.038 I slot print_timing: id  0 | task 6474 | n_gen =    245, tg =   9.59 t/s, tg_3s =   9.36 t/s
+27.09.093.751 I slot print_timing: id  0 | task 6474 | n_gen =    274, tg =   9.58 t/s, tg_3s =   9.47 t/s
+27.12.186.323 I slot print_timing: id  0 | task 6474 | n_gen =    303, tg =   9.56 t/s, tg_3s =   9.38 t/s
+27.15.188.791 I slot print_timing: id  0 | task 6474 | n_gen =    331, tg =   9.54 t/s, tg_3s =   9.33 t/s
+27.18.203.926 I slot print_timing: id  0 | task 6474 | n_gen =    359, tg =   9.52 t/s, tg_3s =   9.29 t/s
+27.21.218.508 I slot print_timing: id  0 | task 6474 | n_gen =    387, tg =   9.50 t/s, tg_3s =   9.29 t/s
+27.24.322.591 I slot print_timing: id  0 | task 6474 | n_gen =    416, tg =   9.49 t/s, tg_3s =   9.34 t/s
+27.27.334.761 I slot print_timing: id  0 | task 6474 | n_gen =    444, tg =   9.48 t/s, tg_3s =   9.30 t/s
+27.30.443.028 I slot print_timing: id  0 | task 6474 | n_gen =    473, tg =   9.47 t/s, tg_3s =   9.33 t/s
+27.33.458.798 I slot print_timing: id  0 | task 6474 | n_gen =    501, tg =   9.46 t/s, tg_3s =   9.28 t/s
+27.36.516.098 I slot print_timing: id  0 | task 6474 | n_gen =    529, tg =   9.44 t/s, tg_3s =   9.16 t/s
+27.39.589.463 I slot print_timing: id  0 | task 6474 | n_gen =    557, tg =   9.42 t/s, tg_3s =   9.11 t/s
+27.42.678.054 I slot print_timing: id  0 | task 6474 | n_gen =    585, tg =   9.41 t/s, tg_3s =   9.07 t/s
+27.45.784.838 I slot print_timing: id  0 | task 6474 | n_gen =    613, tg =   9.39 t/s, tg_3s =   9.01 t/s
+27.48.870.910 I slot print_timing: id  0 | task 6474 | n_gen =    641, tg =   9.37 t/s, tg_3s =   9.07 t/s
+27.51.880.233 I slot print_timing: id  0 | task 6474 | n_gen =    668, tg =   9.36 t/s, tg_3s =   8.97 t/s
+27.54.880.626 I slot print_timing: id  0 | task 6474 | n_gen =    695, tg =   9.34 t/s, tg_3s =   9.00 t/s
+27.57.969.700 I slot print_timing: id  0 | task 6474 | n_gen =    723, tg =   9.33 t/s, tg_3s =   9.06 t/s
+28.01.072.890 I slot print_timing: id  0 | task 6474 | n_gen =    751, tg =   9.32 t/s, tg_3s =   9.02 t/s
+28.04.088.227 I slot print_timing: id  0 | task 6474 | n_gen =    778, tg =   9.31 t/s, tg_3s =   8.95 t/s
+28.07.156.574 I slot print_timing: id  0 | task 6474 | n_gen =    805, tg =   9.29 t/s, tg_3s =   8.80 t/s
+28.10.214.443 I slot print_timing: id  0 | task 6474 | n_gen =    832, tg =   9.27 t/s, tg_3s =   8.83 t/s
+28.13.284.917 I slot print_timing: id  0 | task 6474 | n_gen =    859, tg =   9.26 t/s, tg_3s =   8.79 t/s
+28.16.350.381 I slot print_timing: id  0 | task 6474 | n_gen =    886, tg =   9.24 t/s, tg_3s =   8.81 t/s
+28.19.429.655 I slot print_timing: id  0 | task 6474 | n_gen =    913, tg =   9.23 t/s, tg_3s =   8.77 t/s
+28.22.516.548 I slot print_timing: id  0 | task 6474 | n_gen =    940, tg =   9.21 t/s, tg_3s =   8.75 t/s
+28.25.599.060 I slot print_timing: id  0 | task 6474 | n_gen =    967, tg =   9.20 t/s, tg_3s =   8.76 t/s
+28.28.688.463 I slot print_timing: id  0 | task 6474 | n_gen =    994, tg =   9.19 t/s, tg_3s =   8.74 t/s
+28.31.779.834 I slot print_timing: id  0 | task 6474 | n_gen =   1021, tg =   9.17 t/s, tg_3s =   8.73 t/s
+28.32.120.616 I slot print_timing: id  0 | task 6474 | prompt eval time =   12600.97 ms /  1024 tokens (   12.31 ms per token,    81.26 tokens per second)
+28.32.120.621 I slot print_timing: id  0 | task 6474 |        eval time =  111527.21 ms /  1024 tokens (  109.02 ms per token,     9.17 tokens per second)
+28.32.120.623 I slot print_timing: id  0 | task 6474 |       total time =  124128.17 ms /  2048 tokens
+28.32.120.624 I slot print_timing: id  0 | task 6474 |    graphs reused =       7318
+28.32.120.625 I slot print_timing: id  0 | task 6474 |   graph reallocs =          0    /     0        (same size) / (changed size)
+28.32.120.801 I slot      release: id  0 | task 6474 | stop processing: n_tokens = 2047, truncated = 0
+28.32.120.822 I srv  update_slots: all slots are idle

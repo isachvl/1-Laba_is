@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference='Stop'
 Set-Location $PSScriptRoot
 $python=Join-Path $PSScriptRoot '.venv\Scripts\python.exe'
-& $python -m unittest test_metrics
+& $python -m unittest discover -p "test_*.py"
 if ($LASTEXITCODE -ne 0) { throw 'Проверка метрик не прошла' }
 & $python -u experiment.py
 if ($LASTEXITCODE -ne 0) { throw 'Опыты не завершены: смотрите runs и журналы' }

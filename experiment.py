@@ -152,8 +152,7 @@ class Experiment:
                     'model_sha256': model_hash, 'model_bytes': model.stat().st_size,
                     'model_revision': 'ae44f08e1392f39c0e474af10c3ff8355c8b6688',
                     'model_repo': 'bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF',
-                    'source_lab0_commit': subprocess.check_output(
-                        ['git', '-C', '../lab0', 'rev-parse', 'HEAD'], text=True).strip(),
+                    'source_lab0_commit': 'aa278f2774a3156abe4e5c81691b894edca4e4bd',
                     'code_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                     for p in Path('.').glob('*.py')}}
         self.results.save_metadata(metadata)

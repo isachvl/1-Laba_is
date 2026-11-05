@@ -1,9 +1,13 @@
+# Local environment and downloaded assets
 .venv/
 __pycache__/
 *.pyc
 bin/
 models/
-mlflow.db*
-mlruns/
-mlartifacts/
-runs/
+logs/
+# SQLite temporary files and local relocation backup
+mlflow.db-*
+mlflow.db.before_move
+# Keep the completed measured run; new runs are opt-in
+runs/*
+!runs/20261105_032301_2ef242/

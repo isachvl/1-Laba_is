@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "measurement_rows": 144,
+  "warmups_excluded": 10,
+  "checks": 2,
+  "kv": {
+    "single": {
+      "context_tokens": 16384,
+      "slot_tokens": 16384,
+      "kv_mib_measured": 2304.0,
+      "kv_mib_calculated": 2304.0,
+      "passed": true
+    },
+    "load": {
+      "context_tokens": 16384,
+      "slot_tokens": 4096,
+      "kv_mib_measured": 2304.0,
+      "kv_mib_calculated": 2304.0,
+      "passed": true
+    },
+    "half": {
+      "context_tokens": 8192,
+      "slot_tokens": 2048,
+      "kv_mib_measured": 1152.0,
+      "kv_mib_calculated": 1152.0,
+      "passed": true
+    }
+  },
+  "lengths_and_arithmetic_passed": true
+}

@@ -1,0 +1,9 @@
+{
+  "source": "https://www.gutenberg.org/ebooks/1342.txt.utf-8",
+  "file": "data\\pride_and_prejudice.txt",
+  "sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75",
+  "bytes": 772386,
+  "tokenizer": "GGUF tokenizer via llama.cpp /tokenize",
+  "prompt": "unique label + instruction + model-tokenized excerpt",
+  "load_text_offsets": "i*137 tokens for i in 0..15"
+}

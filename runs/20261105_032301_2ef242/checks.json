@@ -1,0 +1,6 @@
+{
+  "exactly_64_tokens": true,
+  "temperature_0_texts_equal": true,
+  "arithmetic_ttft_ms": 400,
+  "arithmetic_tpot_ms": 20
+}

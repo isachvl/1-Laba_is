@@ -1,0 +1,11 @@
+experiment: lr1
+profile: cpu
+context: 16384
+threads: 8
+input_lengths: [128, 512, 1024, 2048, 4096]
+output_lengths: [16, 64, 256, 1024]
+concurrency: [1, 2, 4]
+repeats: 5
+slo:
+  ttft_s: 30
+  tpot_s: 0.25
